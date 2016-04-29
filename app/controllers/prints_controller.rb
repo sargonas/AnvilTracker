@@ -8,13 +8,17 @@ class PrintsController < ApplicationController
     end
     
     def new
+        @print = Print.new
     end
     
     def create
         @print = Print.new(print_params)
         
-        @print.save
-        redirect_to @print
+        if @print.save
+            redirect_to @print
+        else
+            render 'new'
+        end
     end
     
     private

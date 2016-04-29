@@ -8,13 +8,17 @@ class FilamentsController < ApplicationController
     end
     
     def new
+        @filament = Filament.new
     end
     
     def create
         @filament = Filament.new(filament_params)
         
-        @filament.save
-        redirect_to @filament
+        if @filament.save
+            redirect_to @filament
+        else
+            render 'new'
+        end
     end
     
     private

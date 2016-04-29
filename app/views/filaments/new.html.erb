@@ -1,5 +1,20 @@
 <h1> Add new Filament</h1>
 <%= form_for :filament, url: filaments_path do |f| %>
+    
+    <% if @filament.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@filament.errors.count, "error") %> prohibited
+        this filament from being saved:
+      </h2>
+      <ul>
+        <% @filament.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    
     <p>
         <%= f.label :name %><br>
         <%= f.text_field :name %>
