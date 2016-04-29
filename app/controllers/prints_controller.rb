@@ -46,7 +46,7 @@ class PrintsController < ApplicationController
     
     private
         def print_params
-            params.require(:print).permit(:name, :length, :weight, :price)
+            params.require(:print).permit(:name, :length, :weight, :price, :filament_id)
         end
         
 end
