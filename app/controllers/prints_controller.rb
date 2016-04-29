@@ -11,6 +11,10 @@ class PrintsController < ApplicationController
         @print = Print.new
     end
     
+    def edit
+        @print = Print.find(params[:id])
+    end
+    
     def create
         @print = Print.new(print_params)
         
@@ -18,6 +22,16 @@ class PrintsController < ApplicationController
             redirect_to @print
         else
             render 'new'
+        end
+    end
+    
+    def update
+        @print = Print.find(params[:id])
+ 
+        if @print.update(print_params)
+            redirect_to @print
+        else
+            render 'edit'
         end
     end
     

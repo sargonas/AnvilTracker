@@ -20,6 +20,8 @@
       <td><%= filament.length %></td>
       <td><%= filament.weight %></td>
       <td><%= filament.cost %></td>
+      <td><%= link_to 'Show', filament_path(filament) %></td>
+      <td><%= link_to 'Edit', edit_filament_path(filament) %></td>
     </tr>
   <% end %>
 
