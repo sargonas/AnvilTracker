@@ -18,9 +18,9 @@
       <td><%= print.length %></td>
       <td><%= print.weight %></td>
       <td><%= print.price %></td>
-      <td><%= link_to 'Show', print_path(print) %></td>
-      <td><%= link_to 'Edit', edit_print_path(print) %></td>
-      <td><%= link_to 'Destroy', print_path(print),
+      <td><%= link_to 'Show', print_path(print) %>
+      <%= link_to 'Edit', edit_print_path(print) %>
+      <%= link_to 'Destroy', print_path(print),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
