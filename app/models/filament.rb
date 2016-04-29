@@ -5,4 +5,5 @@ class Filament < ActiveRecord::Base
     validates :length, presence: true
     validates :weight, presence: true
     validates :cost, presence: true
+    has_many :prints
 end

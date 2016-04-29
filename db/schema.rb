@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160429005628) do
+ActiveRecord::Schema.define(version: 20160429072836) do
 
   create_table "filaments", force: :cascade do |t|
     t.string   "name"
@@ -29,8 +29,11 @@ ActiveRecord::Schema.define(version: 20160429005628) do
     t.integer  "length"
     t.integer  "weight"
     t.integer  "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "filament_id"
   end
+
+  add_index "prints", ["filament_id"], name: "index_prints_on_filament_id"
 
 end
