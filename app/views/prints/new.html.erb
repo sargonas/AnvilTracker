@@ -1,0 +1,26 @@
+<h1> Add new print</h1>
+<%= form_for :print, url: prints_path do |f| %>
+    <p>
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+    </p>
+    
+    <p>
+        <%= f.label :length %><br>
+        <%= f.number_field :length %>
+    </p>
+    
+    <p>
+        <%= f.label :weight %><br>
+        <%= f.number_field :weight %>
+    </p>
+    
+    <p>
+        <%= f.label :price %><br>
+        <%= f.number_field :price %>
+    </p>
+    
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>

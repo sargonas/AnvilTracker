@@ -1,0 +1,21 @@
+<h1>Listing prints</h1>
+ 
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Length</th>
+    <th>Weight</th>
+    <th>Price</th>
+  </tr>
+ 
+  <% @prints.each do |print| %>
+    <tr>
+      <td><%= print.id %></td>
+      <td><%= print.name %></td>
+      <td><%= print.length %></td>
+      <td><%= print.weight %></td>
+      <td><%= print.price %></td>
+    </tr>
+  <% end %>
+</table>
