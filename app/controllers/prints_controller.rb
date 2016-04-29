@@ -4,12 +4,12 @@ class PrintsController < ApplicationController
     end
     
     def show
-        @print = Print.find(params[:id])
+        @print = Print.all
     end
     
     def new
         @print = Print.new
-        @filament_options = Filament.all.map{ |f| [ f.name, f.id ] }
+        @filament_options = Filament.name
     end
     
     def edit
