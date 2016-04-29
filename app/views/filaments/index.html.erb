@@ -22,6 +22,9 @@
       <td><%= filament.cost %></td>
       <td><%= link_to 'Show', filament_path(filament) %></td>
       <td><%= link_to 'Edit', edit_filament_path(filament) %></td>
+      <td><%= link_to 'Destroy', filament_path(filament),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 

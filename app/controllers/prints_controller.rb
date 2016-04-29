@@ -35,6 +35,13 @@ class PrintsController < ApplicationController
         end
     end
     
+    def destroy
+        @print = Print.find(params[:id])
+        @print.destroy
+ 
+        redirect_to prints_path
+   end
+    
     private
         def print_params
             params.require(:print).permit(:name, :length, :weight, :price)

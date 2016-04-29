@@ -35,6 +35,13 @@ class FilamentsController < ApplicationController
         end
     end
     
+    def destroy
+        @filament = Filament.find(params[:id])
+        @filament.destroy
+ 
+        redirect_to filaments_path
+    end
+    
     private
         def filament_params
             params.require(:filament).permit(:name, :material, :color, :length, :weight, :cost)
