@@ -1,5 +1,5 @@
 class Print < ActiveRecord::Base
-    has_one :filament
+    belongs_to :filament
     validates :name, presence: true
     validates :length, presence: true
     validates :weight, presence: true
