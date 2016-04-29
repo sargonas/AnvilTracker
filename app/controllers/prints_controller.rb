@@ -4,7 +4,7 @@ class PrintsController < ApplicationController
     end
     
     def show
-        @print = Print.all
+        @print = Print.find(params[:id])
     end
     
     def new
@@ -42,7 +42,7 @@ class PrintsController < ApplicationController
         @print.destroy
  
         redirect_to prints_path
-   end
+    end
     
     private
         def print_params
