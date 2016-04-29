@@ -1,0 +1,43 @@
+<%= form_for @print do |f| %>
+
+<% if @print.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@print.errors.count, "error") %> prohibited
+        this print from being saved:
+      </h2>
+      <ul>
+        <% @print.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    
+    <p>
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+    </p>
+    
+    <p>
+        <%= select_tag(:filament_id, options_for_select(@filament_options)) %>
+    </p>
+    <p>
+        <%= f.label :length %><br>
+        <%= f.number_field :length %>
+    </p>
+    
+    <p>
+        <%= f.label :weight %><br>
+        <%= f.number_field :weight %>
+    </p>
+    
+    <p>
+        <%= f.label :price %><br>
+        <%= f.number_field :price %>
+    </p>
+    
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>
