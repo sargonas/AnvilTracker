@@ -1,0 +1,36 @@
+<h1> Add new Filament</h1>
+<%= form_for :filament, url: filaments_path do |f| %>
+    <p>
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+    </p>
+    
+    <p>
+        <%= f.label :material %><br>
+        <%= f.text_field :material %>
+    </p>
+    
+    <p>
+        <%= f.label :color %><br>
+        <%= f.text_field :color %>
+    </p>
+    
+    <p>
+        <%= f.label :length %><br>
+        <%= f.number_field :length %>
+    </p>
+    
+    <p>
+        <%= f.label :weight %><br>
+        <%= f.number_field :weight %>
+    </p>
+    
+    <p>
+        <%= f.label :cost %><br>
+        <%= f.number_field :cost %>
+    </p>
+    
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>

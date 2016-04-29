@@ -1,0 +1,25 @@
+<h1>Listing filaments</h1>
+ 
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Material</th>
+    <th>Color</th>
+    <th>Length</th>
+    <th>Weight</th>
+    <th>Cost</th>
+  </tr>
+ 
+  <% @filaments.each do |filament| %>
+    <tr>
+      <td><%= filament.id %></td>
+      <td><%= filament.name %></td>
+      <td><%= filament.material %></td>
+      <td><%= filament.color %></td>
+      <td><%= filament.length %></td>
+      <td><%= filament.weight %></td>
+      <td><%= filament.cost %></td>
+    </tr>
+  <% end %>
+</table>
