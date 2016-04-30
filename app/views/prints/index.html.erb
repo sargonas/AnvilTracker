@@ -5,8 +5,8 @@
       <th>ID</th>
       <th>Name</th>
       <th>Filament</th>
-      <th>Length</th>
-      <th>Weight</th>
+      <th>Length(mm)</th>
+      <th>Weight(g)</th>
       <th>Price</th>
     </tr>
     <% @prints.each do |print| %>
@@ -14,9 +14,9 @@
         <td><%= print.id %></td>
         <td><%= print.name %></td>
         <td><%= Filament.find(print.filament_id).name %></td>
-        <td><%= print.length %></td>
-        <td><%= print.weight %></td>
-        <td><%= print.price %></td>
+        <td><%= print.length %>mm</td>
+        <td><%= print.weight %>g</td>
+        <td>$<%= print.price %></td>
         <td><%= link_to 'Show', print_path(print) %>
         <%= link_to 'Edit', edit_print_path(print) %>
         <%= link_to 'Destroy', print_path(print),

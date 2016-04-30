@@ -20,11 +20,11 @@
         <td><%= filament.name %></td>
         <td><%= filament.material %></td>
         <td><%= filament.color %></td>
-        <td><%= filament.length %></td>
-        <td><%= filament.prints.sum(:length) %></td>
-        <td>_Percentages go here_</td>
-        <td><%= filament.weight %></td>
-        <td><%= filament.cost %></td>
+        <td><%= filament.length %>mm</td>
+        <td><%= filament.prints.sum(:length) %>mm</td>
+        <td>X%</td>
+        <td><%= filament.weight %>g</td>
+        <td>$<%= filament.cost %></td>
         <td><%= link_to 'Show', filament_path(filament) %>
         <%= link_to 'Edit', edit_filament_path(filament) %>
         <%= link_to 'Destroy', filament_path(filament),
