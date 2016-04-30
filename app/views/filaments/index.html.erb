@@ -7,6 +7,8 @@
     <th>Material</th>
     <th>Color</th>
     <th>Length</th>
+    <th>Used</th>
+    <th>Remaining %</th>
     <th>Weight</th>
     <th>Cost</th>
   </tr>
@@ -18,6 +20,8 @@
       <td><%= filament.material %></td>
       <td><%= filament.color %></td>
       <td><%= filament.length %></td>
+      <td><%= filament.prints.sum(:length) %></td>
+      <td>_Percentages go here_</td>
       <td><%= filament.weight %></td>
       <td><%= filament.cost %></td>
       <td><%= link_to 'Show', filament_path(filament) %></td>
