@@ -1,39 +1,40 @@
 <h1>Listing filaments</h1>
- 
-<table>
-  <thread>
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Material</th>
-    <th>Color</th>
-    <th>Length</th>
-    <th>Used</th>
-    <th>Remaining %</th>
-    <th>Weight</th>
-    <th>Cost</th>
-  </tr>
-  </thread>
-  <% @filaments.each do |filament| %>
+<div class="index_tables">
+  <table>
+    <thread>
     <tr>
-      <td><%= filament.id %></td>
-      <td><%= filament.name %></td>
-      <td><%= filament.material %></td>
-      <td><%= filament.color %></td>
-      <td><%= filament.length %></td>
-      <td><%= filament.prints.sum(:length) %></td>
-      <td>_Percentages go here_</td>
-      <td><%= filament.weight %></td>
-      <td><%= filament.cost %></td>
-      <td><%= link_to 'Show', filament_path(filament) %>
-      <%= link_to 'Edit', edit_filament_path(filament) %>
-      <%= link_to 'Destroy', filament_path(filament),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Material</th>
+      <th>Color</th>
+      <th>Length</th>
+      <th>Used</th>
+      <th>Remaining %</th>
+      <th>Weight</th>
+      <th>Cost</th>
     </tr>
-  <% end %>
-<p>
-<%= link_to 'Add Filament', new_filament_path %>
-<%= link_to 'Home', root_path %>
-</p>
-</table>
+    </thread>
+    <% @filaments.each do |filament| %>
+      <tr>
+        <td><%= filament.id %></td>
+        <td><%= filament.name %></td>
+        <td><%= filament.material %></td>
+        <td><%= filament.color %></td>
+        <td><%= filament.length %></td>
+        <td><%= filament.prints.sum(:length) %></td>
+        <td>_Percentages go here_</td>
+        <td><%= filament.weight %></td>
+        <td><%= filament.cost %></td>
+        <td><%= link_to 'Show', filament_path(filament) %>
+        <%= link_to 'Edit', edit_filament_path(filament) %>
+        <%= link_to 'Destroy', filament_path(filament),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  <p>
+  <%= link_to 'Add Filament', new_filament_path %>
+  <%= link_to 'Home', root_path %>
+  </p>
+  </table>
+</div>

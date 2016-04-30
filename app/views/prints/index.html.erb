@@ -1,34 +1,32 @@
 <h1>Listing prints</h1>
- 
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Filament</th>
-    <th>Length</th>
-    <th>Weight</th>
-    <th>Price</th>
-  </tr>
- 
-  <% @prints.each do |print| %>
+<div class="index_tables"> 
+  <table>
     <tr>
-      <td><%= print.id %></td>
-      <td><%= print.name %></td>
-      <td><%= Filament.find(print.filament_id).name %></td>
-      <td><%= print.length %></td>
-      <td><%= print.weight %></td>
-      <td><%= print.price %></td>
-      <td><%= link_to 'Show', print_path(print) %>
-      <%= link_to 'Edit', edit_print_path(print) %>
-      <%= link_to 'Destroy', print_path(print),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Filament</th>
+      <th>Length</th>
+      <th>Weight</th>
+      <th>Price</th>
     </tr>
-  <% end %>
-
-<p>
-<%= link_to 'Add Print', new_print_path %>
-<%= link_to 'Home', root_path %>
-</p>
-
-</table>
+    <% @prints.each do |print| %>
+      <tr>
+        <td><%= print.id %></td>
+        <td><%= print.name %></td>
+        <td><%= Filament.find(print.filament_id).name %></td>
+        <td><%= print.length %></td>
+        <td><%= print.weight %></td>
+        <td><%= print.price %></td>
+        <td><%= link_to 'Show', print_path(print) %>
+        <%= link_to 'Edit', edit_print_path(print) %>
+        <%= link_to 'Destroy', print_path(print),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  <p>
+  <%= link_to 'Add Print', new_print_path %>
+  <%= link_to 'Home', root_path %>
+  </p>
+  </table>
+</div>
