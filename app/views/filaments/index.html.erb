@@ -1,6 +1,7 @@
 <h1>Listing filaments</h1>
  
 <table>
+  <thread>
   <tr>
     <th>ID</th>
     <th>Name</th>
@@ -12,7 +13,7 @@
     <th>Weight</th>
     <th>Cost</th>
   </tr>
- 
+  </thread>
   <% @filaments.each do |filament| %>
     <tr>
       <td><%= filament.id %></td>
@@ -24,9 +25,9 @@
       <td>_Percentages go here_</td>
       <td><%= filament.weight %></td>
       <td><%= filament.cost %></td>
-      <td><%= link_to 'Show', filament_path(filament) %></td>
-      <td><%= link_to 'Edit', edit_filament_path(filament) %></td>
-      <td><%= link_to 'Destroy', filament_path(filament),
+      <td><%= link_to 'Show', filament_path(filament) %>
+      <%= link_to 'Edit', edit_filament_path(filament) %>
+      <%= link_to 'Destroy', filament_path(filament),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
