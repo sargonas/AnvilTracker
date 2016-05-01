@@ -11,24 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160429072836) do
+ActiveRecord::Schema.define(version: 20160501053825) do
 
   create_table "filaments", force: :cascade do |t|
     t.string   "name"
     t.text     "material"
     t.text     "color"
-    t.integer  "length"
-    t.integer  "weight"
-    t.integer  "cost"
+    t.decimal  "length"
+    t.decimal  "weight"
+    t.decimal  "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "prints", force: :cascade do |t|
     t.string   "name"
-    t.integer  "length"
-    t.integer  "weight"
-    t.integer  "price"
+    t.decimal  "length"
+    t.decimal  "weight"
+    t.decimal  "price"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "filament_id"
