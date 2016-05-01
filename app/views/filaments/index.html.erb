@@ -29,15 +29,15 @@
         <td><%= filament.prints.sum(:weight) %>g</td>
         <td><%= ((filament.prints.sum(:weight) / filament.weight)*100).round(2) %>%</td>
         <td>$<%= filament.cost %></td>
-        <td><%= link_to 'Show', filament_path(filament) %>
-        <%= link_to 'Edit', edit_filament_path(filament) %>
+        <td><%= link_to 'Show', filament_path(filament), class: 'btn btn-primary' %>
+        <%= link_to 'Edit', edit_filament_path(filament), class: 'btn btn-warning' %>
         <%= link_to 'Destroy', filament_path(filament),
                 method: :delete,
-                data: { confirm: 'Are you sure?' } %></td>
+                data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   <p>
-  <%= link_to 'Add Filament', new_filament_path %>
+  <%= link_to '+Add Filament', new_filament_path, class: 'btn btn-primary' %>
   <%= link_to 'Home', root_path %>
   </p>
   </table>
