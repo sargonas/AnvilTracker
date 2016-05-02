@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160501053825) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "filaments", force: :cascade do |t|
     t.string   "name"
     t.text     "material"
@@ -34,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160501053825) do
     t.integer  "filament_id"
   end
 
-  add_index "prints", ["filament_id"], name: "index_prints_on_filament_id"
+  add_index "prints", ["filament_id"], name: "index_prints_on_filament_id", using: :btree
 
+  add_foreign_key "prints", "filaments"
 end
