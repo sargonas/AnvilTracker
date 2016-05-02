@@ -1,44 +1,61 @@
-<h1>Listing filaments</h1>
-<div class="index_tables">
-  <table>
-    <thread>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Material</th>
-      <th>Color</th>
-      <th>Length</th>
-      <th>Length Used</th>
-      <th>Remaining Length</th>
-      <th>Weight</th>
-      <th>Weight Used</th>
-      <th>Remaining Weight</th>
-      <th>Cost</th>
-    </tr>
-    </thread>
-    <% @filaments.each do |filament| %>
-      <tr>
-        <td><%= filament.id %></td>
-        <td><%= filament.name %></td>
-        <td><%= filament.material %></td>
-        <td><%= filament.color %></td>
-        <td><%= filament.length %>mm</td>
-        <td><%= filament.prints.sum(:length) %>mm</td>
-        <td><%= ((filament.prints.sum(:length) / filament.length)*100).round(2) %>%</td>
-        <td><%= filament.weight %>g</td>
-        <td><%= filament.prints.sum(:weight) %>g</td>
-        <td><%= ((filament.prints.sum(:weight) / filament.weight)*100).round(2) %>%</td>
-        <td>$<%= filament.cost %></td>
-        <td><%= link_to 'Show', filament_path(filament), class: 'btn btn-primary' %>
-        <%= link_to 'Edit', edit_filament_path(filament), class: 'btn btn-warning' %>
-        <%= link_to 'Destroy', filament_path(filament),
-                method: :delete,
-                data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
-      </tr>
-    <% end %>
-  <p>
-  <%= link_to '+Add Filament', new_filament_path, class: 'btn btn-primary' %>
-  <%= link_to 'Home', root_path %>
-  </p>
-  </table>
+<div class="header">
+  <h1> ANVIL TRACKER</h1>
+</div>
+<div class="colmask">
+  <div class="colmid">
+    <div class="colleft">
+      <div class="col2">
+        <p>
+          </br>
+          <%= link_to '+Add Filament', new_filament_path, class: 'btn btn-primary' %>
+          </br>
+          <%= link_to 'Home', root_path %>
+        </p>
+      </div>
+      <div class="col1">
+        <h1>Listing filaments</h1>
+        <div class="index_tables">
+          <table>
+            <thread>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Material</th>
+              <th>Color</th>
+              <th>Length</th>
+              <th>Length Used</th>
+              <th>Remaining Length</th>
+              <th>Weight</th>
+              <th>Weight Used</th>
+              <th>Remaining Weight</th>
+              <th>Cost</th>
+            </tr>
+            </thread>
+            <% @filaments.each do |filament| %>
+              <tr>
+                <td><%= filament.id %></td>
+                <td><%= filament.name %></td>
+                <td><%= filament.material %></td>
+                <td><%= filament.color %></td>
+                <td><%= filament.length %>mm</td>
+                <td><%= filament.prints.sum(:length) %>mm</td>
+                <td><%= ((filament.prints.sum(:length) / filament.length)*100).round(2) %>%</td>
+                <td><%= filament.weight %>g</td>
+                <td><%= filament.prints.sum(:weight) %>g</td>
+                <td><%= ((filament.prints.sum(:weight) / filament.weight)*100).round(2) %>%</td>
+                <td>$<%= filament.cost %></td>
+                <td><%= link_to 'Show', filament_path(filament), class: 'btn btn-primary' %>
+                <%= link_to 'Edit', edit_filament_path(filament), class: 'btn btn-warning' %>
+                <%= link_to 'Destroy', filament_path(filament),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">
 </div>
