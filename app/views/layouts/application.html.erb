@@ -7,8 +7,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="header">
+    <h1> ANVIL TRACKER</h1>
+  </div>
+  <div class="colmask">
+    <div class="colmid">
+      <div class="colleft">
+        <div class="col2">
+        <p>
+          <h2>Menu</h2>
+          </br>
+          <%= link_to '+Add Print', new_print_path, class: 'btn btn-primary' %>
+          </br>
+          <%= link_to 'Home', root_path %>
+        </p>
+        </div>
+        <div class="col1">
+          <%= yield %>
+        </div>
+        <div class="col3">
+          <img src="http://placehold.it/160x600">
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="footer">
+</div>
 </body>
 </html>

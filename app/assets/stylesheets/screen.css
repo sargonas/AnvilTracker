@@ -121,6 +121,7 @@ img {
 					only padding top and bottom is included here, make it whatever value you need */
 	overflow:hidden;
 }
+
 /* 3 Column settings */
 .threecol {
 	background:#eee;		/* right column background colour */

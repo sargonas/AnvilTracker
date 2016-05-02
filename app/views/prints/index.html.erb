@@ -1,53 +1,28 @@
-<div class="header">
-  <h1> ANVIL TRACKER</h1>
-</div>
-<div class="colmask">
-  <div class="colmid">
-    <div class="colleft">
-      <div class="col2">
-        <p>
-          <h2>Menu</h2>
-          </br>
-          <%= link_to '+Add Print', new_print_path, class: 'btn btn-primary' %>
-          </br>
-          <%= link_to 'Home', root_path %>
-        </p>
-      </div>
-      <div class="col1">
-        <h1>Listing prints</h1>
-        <div class="index_tables"> 
-          <table>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Filament</th>
-              <th>Length(mm)</th>
-              <th>Weight(g)</th>
-              <th>Price</th>
-            </tr>
-            <% @prints.each do |print| %>
-              <tr>
-                <td><%= print.id %></td>
-                <td><%= print.name %></td>
-                <td><%= Filament.find(print.filament_id).name %></td>
-                <td><%= print.length %>mm</td>
-                <td><%= print.weight %>g</td>
-                <td>$<%= print.price %></td>
-                <td><%= link_to 'Show', print_path(print), class: 'btn btn-primary' %>
-                <%= link_to 'Edit', edit_print_path(print), class: 'btn btn-warning' %>
-                <%= link_to 'Destroy', print_path(print),
-                        method: :delete,
-                        data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
-              </tr>
-            <% end %>
-          </table>
-        </div>
-      </div>
-      <div class="col3">
-        <img src="http://placehold.it/160x600">
-      </div>
-    </div>
+<h1>Listing prints</h1>
+  <div class="index_tables"> 
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Filament</th>
+        <th>Length(mm)</th>
+        <th>Weight(g)</th>
+        <th>Price</th>
+      </tr>
+      <% @prints.each do |print| %>
+        <tr>
+          <td><%= print.id %></td>
+          <td><%= print.name %></td>
+          <td><%= Filament.find(print.filament_id).name %></td>
+          <td><%= print.length %>mm</td>
+          <td><%= print.weight %>g</td>
+          <td>$<%= print.price %></td>
+          <td><%= link_to 'Show', print_path(print), class: 'btn btn-primary' %>
+          <%= link_to 'Edit', edit_print_path(print), class: 'btn btn-warning' %>
+          <%= link_to 'Destroy', print_path(print),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+    </table>
   </div>
-</div>
-<div class="footer">
-</div>
