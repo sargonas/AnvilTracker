@@ -26,10 +26,4 @@ development:
 #  database: db/test.sqlite3
 
 production:
-  adapter: postgresql
-  encoding: unicode
-  database: myapp_development
-  pool: 5
-  username: myapp
-  password: password1
-  template: template0
+   url: <%= ENV['DATABASE_URL'] %>
