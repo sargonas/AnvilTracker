@@ -38,6 +38,8 @@ gem 'bootstrap', '~> 4.0.0.alpha3'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  
+  gem 'postgresql'
 end
 
 group :development do
@@ -48,3 +50,6 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  gem 'pg'
+end
