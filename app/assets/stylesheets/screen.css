@@ -117,7 +117,7 @@ img {
 .col3 {
 	float:left;
 	position:relative;
-	padding:0 0 1em 0;	/* no left and right padding on columns, we just make them narrower instead 
+	padding:1em 1em 1em 1em;	/* no left and right padding on columns, we just make them narrower instead 
 					only padding top and bottom is included here, make it whatever value you need */
 	overflow:hidden;
 }
