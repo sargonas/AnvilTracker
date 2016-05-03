@@ -23,6 +23,7 @@
             <li><%= link_to 'Home', root_path %></li>
             <li><%= link_to 'List of Filaments', filaments_path %></li>
             <li><%= link_to 'List of Prints', prints_path %></li>
+            <li><%= link_to 'Edit User', edit_user_registration_path %></li>
             <% else %> 
             <% end %>
             <%= render 'devise/menu/login' %>
