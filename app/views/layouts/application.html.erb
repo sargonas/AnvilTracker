@@ -7,10 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= render :partial => 'layouts/sessions' %>
   <div class="header">
     <center><h1>ANVIL TRACKER</h1></center>
   </div>
   <div class="colmask">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <div class="colmid">
       <div class="colleft">
         <div class="col2">
