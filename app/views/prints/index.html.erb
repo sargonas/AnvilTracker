@@ -3,6 +3,7 @@
     <table>
       <tr>
         <th>ID</th>
+        <th>Date</th>
         <th>Name</th>
         <th>Filament</th>
         <th>Length(mm)</th>
@@ -12,6 +13,7 @@
       <% @prints.each do |print| %>
         <tr>
           <td><%= print.id %></td>
+          <td><%= print.printed_date %></td>
           <td><%= print.name %></td>
           <td><%= Filament.find(print.filament_id).name %></td>
           <td><%= print.length %>mm</td>
