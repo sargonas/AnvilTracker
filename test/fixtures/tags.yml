@@ -1,9 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  tag_id: 
   tag_name: MyString
 
 two:
-  tag_id: 
   tag_name: MyString
