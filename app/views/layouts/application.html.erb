@@ -19,9 +19,12 @@
         <p>
           <h2>Menu</h2>
             <br>
+            <% if user_signed_in? %>
             <li><%= link_to 'Home', root_path %></li>
             <li><%= link_to 'List of Filaments', filaments_path %></li>
             <li><%= link_to 'List of Prints', prints_path %></li>
+            <% else %> 
+            <% end %>
             <%= render 'devise/menu/login' %>
         </p>
         </div>

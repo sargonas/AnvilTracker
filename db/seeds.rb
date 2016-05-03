@@ -11,3 +11,4 @@ Filament.create(name: 'CF nGen Black Sample 1', material: 'nGen', color: 'black'
 Filament.create(name: 'CF XTC Clear 1', material: 'XTC', color: 'clear', length: 90000, weight: 750, cost: 40.00)
 Print.create(name: 'Marvin Test', length: 500, weight: 10, price: 5.00, filament_id: 3, printed_date: "2015-02-21")
 Print.create(name: 'Nes Pi Case', length: 1500, weight: 80, price: 15.00, filament_id: 1, printed_date: "2015-03-05")
+user = User.create! :email => 'admin@example.com', :password => 'changeme', :password_confirmation => 'changeme'
