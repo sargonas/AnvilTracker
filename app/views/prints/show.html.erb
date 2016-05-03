@@ -15,8 +15,12 @@
 
 <p>
   <strong>Filament:</strong>
-  <%= @print.filament_id %>
-  <%= @print.filament.name %>
+  <% if (@print.filament_id != nil) %>
+    <%= @print.filament_id %>
+    <%= @print.filament.name %>
+  <% else %>
+  N/A
+  <% end %>
 </p>
 
 <p>
