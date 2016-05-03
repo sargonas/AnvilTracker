@@ -9,7 +9,7 @@ class PrintsController < ApplicationController
     
     def new
         @print = Print.new
-        @filament_options = Filament.name
+        @filament_options = Filament.all.map{ |f| [ f.name, f.id ] }
     end
     
     def edit
