@@ -35,5 +35,6 @@ test:
 #  <<: *default
 #  database: db/test.sqlite3
 
+#prod DB configured for Heroku
 production:
    url: <%= ENV['DATABASE_URL'] %>
