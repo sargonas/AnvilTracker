@@ -5,9 +5,13 @@ one:
   length: 1
   weight: 1
   price: 1
+  filament_id: 1
+  printed_date: 2015-03-05
 
 two:
   name: MyString
   length: 1
   weight: 1
   price: 1
+  filament_id: 2
+  printed_date: 2015-03-05
