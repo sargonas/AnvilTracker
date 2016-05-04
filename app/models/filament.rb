@@ -1,5 +1,5 @@
 class Filament < ActiveRecord::Base
-    has_many :prints
+    has_many :prints, dependent: :nullify
     validates :name, presence: true
     validates :material, presence: true
     validates :color, presence: true

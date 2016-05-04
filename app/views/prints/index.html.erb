@@ -15,7 +15,11 @@
           <td><%= print.id %></td>
           <td><%= print.printed_date %></td>
           <td><%= print.name %></td>
-          <td><%= Filament.find(print.filament_id).name %></td>
+          <% if (print.filament_id != nil) %> 
+            <td><%= Filament.find(print.filament_id).name %></td>
+          <% else %>
+            <td>N/A</td>
+          <% end %>
           <td><%= print.length %>mm</td>
           <td><%= print.weight %>g</td>
           <td>$<%= print.price %></td>
