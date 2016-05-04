@@ -31,7 +31,10 @@ class FilamentsControllerTest < ActionController::TestCase
     assert_redirected_to filament_path(assigns(:filament))
   end
   test "should not create filament when signed out" do
-    #future test required
+    assert_no_difference('Filament.count') do
+      post :create, filament: { name: @filament.name, material: @filament.material, color: @filament.color, length: @filament.length, weight: @filament.weight, cost: @filament.cost }
+    end
+    assert_redirected_to "/users/sign_in"
   end
   test "should show filament when signed in" do
     sign_in User.first
@@ -57,7 +60,8 @@ class FilamentsControllerTest < ActionController::TestCase
     assert_redirected_to filament_path(assigns(:filament))
   end
   test "should not update filament when signed out" do
-    #future test required
+    patch :update, id: @filament, filament: { name: @filament.name, material: @filament.material, color: @filament.color, length: @filament.length, weight: @filament.weight, cost: @filament.cost }
+    assert_redirected_to "/users/sign_in"
   end
   test "should destroy filament when signed in" do
     sign_in User.first
@@ -67,6 +71,9 @@ class FilamentsControllerTest < ActionController::TestCase
     assert_redirected_to filaments_path
   end
   test "should not destroy filament when signed out" do
-    #future test required
+    assert_no_difference('Filament.count', -1) do
+      delete :destroy, id: @filament
+    end
+    assert_redirected_to "/users/sign_in"
   end
 end
