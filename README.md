@@ -13,9 +13,9 @@ made sense!
  - Enter and track each physical spool of filament and it's metrics.
  - Enter and track each print you run.
  - Track filament consumed per spool pased on prints.
+ - Basic user authentication for general security.
  
 ## Future plans:
- - Basic user authentication for general security.
  - Reporting system for reports on time and materials cost/profits
  - Tagging for prints for more detailed reporting.
  - Additional tracking of filament materials for logging of optimal settings
