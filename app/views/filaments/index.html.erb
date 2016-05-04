@@ -28,7 +28,7 @@
         <td><%= filament.weight %>g</td>
         <td><%= filament.prints.sum(:weight) %>g</td>
         <td><%= ((filament.prints.sum(:weight) / filament.weight)*100).round(2) %>%</td>
-        <td>$<%= filament.cost.round(2) %></td>
+        <td><%= number_to_currency(filament.cost) %></td>
         <td><%= link_to 'Show', filament_path(filament), class: 'btn btn-primary' %>
         <%= link_to 'Edit', edit_filament_path(filament), class: 'btn btn-warning' %>
         <%= link_to 'Destroy', filament_path(filament),

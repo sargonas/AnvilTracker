@@ -22,7 +22,7 @@
           <% end %>
           <td><%= print.length %>mm</td>
           <td><%= print.weight %>g</td>
-          <td>$<%= print.price %></td>
+          <td><%= number_to_currency(print.price) %></td>
           <td><%= link_to 'Show', print_path(print), class: 'btn btn-primary' %>
           <%= link_to 'Edit', edit_print_path(print), class: 'btn btn-warning' %>
           <%= link_to 'Destroy', print_path(print),
