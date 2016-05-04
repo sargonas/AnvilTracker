@@ -46,5 +46,4 @@ class FilamentsController < ApplicationController
         def filament_params
             params.require(:filament).permit(:name, :material, :color, :length, :weight, :cost)
         end
-        
 end

@@ -9,10 +9,7 @@
 <body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-  <div class="header">
-    <br>
-    <center><h1>ANVIL TRACKER</h1></center>
-  </div>
+  <%= render "layouts/header" %>
   <div class="colmask">
     <div class="colmid">
       <div class="colleft">
@@ -38,7 +35,6 @@
       </div>
     </div>
   </div>
-<div class="footer">
-</div>
+<%= render "layouts/footer" %>
 </body>
 </html>
