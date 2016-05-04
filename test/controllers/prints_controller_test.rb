@@ -32,7 +32,10 @@ class PrintsControllerTest < ActionController::TestCase
     assert_redirected_to print_path(assigns(:print))
   end
   test "should not create print when logged out" do
-    #Needs future test condition
+    assert_no_difference('Print.count') do
+      post :create, print: { name: @print.name, filament_id: @print.filament_id, length: @print.length, weight: @print.weight, price: @print.price }
+    end
+    assert_redirected_to "/users/sign_in"
   end
   test "should show print when signed in" do
     sign_in User.first
@@ -58,7 +61,8 @@ class PrintsControllerTest < ActionController::TestCase
     assert_redirected_to print_path(assigns(:print))
   end
   test "should not update print when logged out" do
-    #Needs future test condition
+    patch :update, id: @print, print: { name: @print.name, filament_id: @print.filament_id, length: @print.length, weight: @print.weight, price: @print.price }
+    assert_redirected_to "/users/sign_in"
   end
   test "should destroy print when signed in" do
     sign_in User.first
@@ -68,6 +72,9 @@ class PrintsControllerTest < ActionController::TestCase
     assert_redirected_to prints_path
   end
   test "should not destroy print when logged out" do
-    #Needs future test condition
+    assert_no_difference('Print.count', -1) do
+      delete :destroy, id: @print
+    end
+    assert_redirected_to "/users/sign_in"
   end
 end
