@@ -1,6 +1,6 @@
 class PrintsController < ApplicationController
     def index
-        @prints = Print.all
+        @prints = Print.order(:id)
     end
     
     def show

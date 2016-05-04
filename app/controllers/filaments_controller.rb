@@ -1,6 +1,6 @@
 class FilamentsController < ApplicationController
     def index
-        @filaments = Filament.all
+        @filaments = Filament.order(:id)
     end
     
     def show
