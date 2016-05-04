@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Workspace</title>
+  <title>Anvil Tracker</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <div class="header">
+    <br>
     <center><h1>ANVIL TRACKER</h1></center>
   </div>
   <div class="colmask">
@@ -19,9 +20,9 @@
             <br>
             <%= link_to 'Home', root_path %>
             <br>
-            <%= link_to 'List of Filaments', controller: 'filaments' %>
+            <%= link_to 'Filaments', controller: 'filaments' %>
             <br>
-            <%= link_to 'List of Prints', controller: 'prints' %>
+            <%= link_to 'Prints', controller: 'prints' %>
             <br>
         </p>
         </div>
