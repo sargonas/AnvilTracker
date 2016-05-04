@@ -7,10 +7,10 @@
       <th>Name</th>
       <th>Material</th>
       <th>Color</th>
-      <th>Length</th>
+      <th>Length (mm)</th>
       <th>Length Used</th>
       <th>Remaining Length</th>
-      <th>Weight</th>
+      <th>Weight (g)</th>
       <th>Weight Used</th>
       <th>Remaining Weight</th>
       <th>Cost</th>
@@ -28,7 +28,7 @@
         <td><%= filament.weight %>g</td>
         <td><%= filament.prints.sum(:weight) %>g</td>
         <td><%= ((filament.prints.sum(:weight) / filament.weight)*100).round(2) %>%</td>
-        <td>$<%= filament.cost %></td>
+        <td><%= number_to_currency(filament.cost) %></td>
         <td><%= link_to 'Show', filament_path(filament), class: 'btn btn-primary' %>
         <%= link_to 'Edit', edit_filament_path(filament), class: 'btn btn-warning' %>
         <%= link_to 'Destroy', filament_path(filament),

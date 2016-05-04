@@ -30,7 +30,7 @@
 
 <p>
   <strong>Cost:</strong>
-  <%= @filament.cost %>
+  <%= number_to_currency(@filament.cost) %>
 </p>
 
 <%= link_to 'Edit', edit_filament_path(@filament) %>

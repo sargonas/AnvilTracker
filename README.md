@@ -1,4 +1,4 @@
-# AnvilTracker
+### AnvilTracker
 
 A (currently very basic) system for tracking 3D Printing filaments, and your prints.
 Designed for tracking used filaments, remaining amounts, total materials costs 

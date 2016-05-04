@@ -29,12 +29,12 @@
     
     <p>
         <%= f.label :weight %><br>
-        <%= f.number_field :weight %>
+        <%= f.number_field :weight, :step => "0.01" %>
     </p>
     
     <p>
         <%= f.label :price %><br>
-        <%= f.number_field :price %>
+        <%= f.number_field :price, :step => "0.01" %>
     </p>
     
     <p>

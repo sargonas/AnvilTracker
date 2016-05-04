@@ -10,6 +10,7 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
   <div class="header">
+    <br>
     <center><h1>ANVIL TRACKER</h1></center>
   </div>
   <div class="colmask">
@@ -21,8 +22,8 @@
             <br>
             <% if user_signed_in? %>
             <li><%= link_to 'Home', root_path %></li>
-            <li><%= link_to 'List of Filaments', filaments_path %></li>
-            <li><%= link_to 'List of Prints', prints_path %></li>
+            <li><%= link_to 'Filaments', filaments_path %></li>
+            <li><%= link_to 'Prints', prints_path %></li>
             <li><%= link_to 'Edit User', edit_user_registration_path %></li>
             <% else %> 
             <% end %>

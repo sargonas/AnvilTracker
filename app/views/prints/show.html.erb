@@ -35,7 +35,7 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @print.price %>
+  <%= number_to_currency(@print.price) %>
 </p>
 
 <%= link_to 'Edit', edit_print_path(@print) %>
