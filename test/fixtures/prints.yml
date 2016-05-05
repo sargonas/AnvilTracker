@@ -7,6 +7,7 @@ one:
   price: 1
   printed_date: 2015-03-05
   filament_id: 1
+  volume: 10.01
 
 two:
   name: MyString
@@ -15,3 +16,4 @@ two:
   price: 1
   printed_date: 2015-03-05
   filament_id: 2
+  volume: 123.99

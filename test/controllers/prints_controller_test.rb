@@ -27,13 +27,13 @@ class PrintsControllerTest < ActionController::TestCase
   test "should create print when signed in" do
     sign_in User.first
     assert_difference('Print.count') do
-      post :create, print: { name: @print.name, filament_id: @print.filament_id, length: @print.length, weight: @print.weight, price: @print.price }
+      post :create, print: { name: @print.name, filament_id: @print.filament_id, length: @print.length, weight: @print.weight, price: @print.price, volume: @print.volume }
     end
     assert_redirected_to print_path(assigns(:print))
   end
   test "should not create print when logged out" do
     assert_no_difference('Print.count') do
-      post :create, print: { name: @print.name, filament_id: @print.filament_id, length: @print.length, weight: @print.weight, price: @print.price }
+      post :create, print: { name: @print.name, filament_id: @print.filament_id, length: @print.length, weight: @print.weight, price: @print.price, volume: @print.volume }
     end
     assert_redirected_to "/users/sign_in"
   end
@@ -57,11 +57,11 @@ class PrintsControllerTest < ActionController::TestCase
   end
   test "should update print when signed in" do
     sign_in User.first
-    patch :update, id: @print, print: { name: @print.name, filament_id: @print.filament_id, length: @print.length, weight: @print.weight, price: @print.price }
+    patch :update, id: @print, print: { name: @print.name, filament_id: @print.filament_id, length: @print.length, weight: @print.weight, price: @print.price, volume: @print.volume }
     assert_redirected_to print_path(assigns(:print))
   end
   test "should not update print when logged out" do
-    patch :update, id: @print, print: { name: @print.name, filament_id: @print.filament_id, length: @print.length, weight: @print.weight, price: @print.price }
+    patch :update, id: @print, print: { name: @print.name, filament_id: @print.filament_id, length: @print.length, weight: @print.weight, price: @print.price, volume: @print.volume }
     assert_redirected_to "/users/sign_in"
   end
   test "should destroy print when signed in" do

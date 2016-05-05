@@ -40,8 +40,21 @@
     </p>
     
     <p>
+        <%= f.label :diameter %><br>
+        <%= f.number_field :diameter, :step => "0.01" %>
+    </p>
+    
+    <p>
         <%= f.label :cost %><br>
         <%= f.number_field :cost, :step => "0.01" %>
+    </p>
+    
+    <p>
+        <%= label :archived, "Available" %>
+        <%= f.radio_button :archived, false , :value => false %>
+        <br>
+        <%= label :archived, "Archived"%>
+        <%= f.radio_button :archived, true, :value => true%>
     </p>
     
     <p>

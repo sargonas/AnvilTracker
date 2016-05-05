@@ -6,4 +6,5 @@ class Filament < ActiveRecord::Base
     validates :length, presence: true
     validates :weight, presence: true
     validates :cost, presence: true
+    validates :diameter, presence: true
 end

@@ -19,6 +19,11 @@
 </p>
 
 <p>
+  <strong>Diameter:</strong>
+  <%= @filament.diameter %>
+</p>
+
+<p>
   <strong>Length:</strong>
   <%= @filament.length %>
 </p>
@@ -31,6 +36,11 @@
 <p>
   <strong>Cost:</strong>
   <%= number_to_currency(@filament.cost) %>
+</p>
+
+<p>
+  <strong>Archived?</strong>
+  <%= @filament.archived %>
 </p>
 
 <%= link_to 'Edit', edit_filament_path(@filament) %>

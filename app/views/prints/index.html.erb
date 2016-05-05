@@ -8,6 +8,7 @@
         <th>Filament</th>
         <th>Length(mm)</th>
         <th>Weight(g)</th>
+        <th>Volume(cm^3)</th>
         <th>Price</th>
       </tr>
       <% @prints.each do |print| %>
@@ -22,6 +23,7 @@
           <% end %>
           <td><%= print.length %>mm</td>
           <td><%= print.weight %>g</td>
+          <td><%= print.volume %></td>
           <td><%= number_to_currency(print.price) %></td>
           <td><%= link_to 'Show', print_path(print), class: 'btn btn-primary' %>
           <%= link_to 'Edit', edit_print_path(print), class: 'btn btn-warning' %>

@@ -7,6 +7,7 @@
       <th>Name</th>
       <th>Material</th>
       <th>Color</th>
+      <th>Diameter</th>
       <th>Length (mm)</th>
       <th>Length Used</th>
       <th>Remaining Length</th>
@@ -14,6 +15,7 @@
       <th>Weight Used</th>
       <th>Remaining Weight</th>
       <th>Cost</th>
+      <th>Availability</th>
     </tr>
     </thread>
     <% @filaments.each do |filament| %>
@@ -22,6 +24,7 @@
         <td><%= filament.name %></td>
         <td><%= filament.material %></td>
         <td><%= filament.color %></td>
+        <td><%= filament.diameter %></td>
         <td><%= filament.length %>mm</td>
         <td><%= filament.prints.sum(:length) %>mm</td>
         <td><%= ((filament.prints.sum(:length) / filament.length)*100).round(2) %>%</td>
@@ -29,6 +32,11 @@
         <td><%= filament.prints.sum(:weight) %>g</td>
         <td><%= ((filament.prints.sum(:weight) / filament.weight)*100).round(2) %>%</td>
         <td><%= number_to_currency(filament.cost) %></td>
+        <% if (filament.archived == true) %>
+          <td>Archived</td>
+        <% else %>
+          <td>Available</td>
+        <% end %>
         <td><%= link_to 'Show', filament_path(filament), class: 'btn btn-primary' %>
         <%= link_to 'Edit', edit_filament_path(filament), class: 'btn btn-warning' %>
         <%= link_to 'Destroy', filament_path(filament),

@@ -26,13 +26,13 @@ class FilamentsControllerTest < ActionController::TestCase
   test "should create filament when signed in" do
     sign_in User.first
     assert_difference('Filament.count') do
-      post :create, filament: { name: @filament.name, material: @filament.material, color: @filament.color, length: @filament.length, weight: @filament.weight, cost: @filament.cost }
+      post :create, filament: { name: @filament.name, material: @filament.material, color: @filament.color, length: @filament.length, weight: @filament.weight, cost: @filament.cost, diameter: @filament.diameter, archived: @filament.archived }
     end
     assert_redirected_to filament_path(assigns(:filament))
   end
   test "should not create filament when signed out" do
     assert_no_difference('Filament.count') do
-      post :create, filament: { name: @filament.name, material: @filament.material, color: @filament.color, length: @filament.length, weight: @filament.weight, cost: @filament.cost }
+      post :create, filament: { name: @filament.name, material: @filament.material, color: @filament.color, length: @filament.length, weight: @filament.weight, cost: @filament.cost, diameter: @filament.diameter, archived: @filament.archived }
     end
     assert_redirected_to "/users/sign_in"
   end
@@ -56,11 +56,11 @@ class FilamentsControllerTest < ActionController::TestCase
   end
   test "should update filament when signed in" do
     sign_in User.first
-    patch :update, id: @filament, filament: { name: @filament.name, material: @filament.material, color: @filament.color, length: @filament.length, weight: @filament.weight, cost: @filament.cost }
+    patch :update, id: @filament, filament: { name: @filament.name, material: @filament.material, color: @filament.color, length: @filament.length, weight: @filament.weight, cost: @filament.cost, diameter: @filament.diameter, archived: @filament.archived }
     assert_redirected_to filament_path(assigns(:filament))
   end
   test "should not update filament when signed out" do
-    patch :update, id: @filament, filament: { name: @filament.name, material: @filament.material, color: @filament.color, length: @filament.length, weight: @filament.weight, cost: @filament.cost }
+    patch :update, id: @filament, filament: { name: @filament.name, material: @filament.material, color: @filament.color, length: @filament.length, weight: @filament.weight, cost: @filament.cost, diameter: @filament.diameter, archived: @filament.archived }
     assert_redirected_to "/users/sign_in"
   end
   test "should destroy filament when signed in" do

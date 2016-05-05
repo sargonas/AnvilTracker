@@ -5,4 +5,5 @@ class Print < ActiveRecord::Base
     validates :weight, presence: true
     validates :price, presence: true
     validates :filament_id, presence: true
+    validates :volume, presence: true
 end
