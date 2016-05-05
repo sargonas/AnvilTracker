@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160503231059) do
+ActiveRecord::Schema.define(version: 20160505203816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,11 +32,10 @@ ActiveRecord::Schema.define(version: 20160503231059) do
     t.decimal  "length"
     t.decimal  "weight"
     t.decimal  "price"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "filament_id"
     t.date     "printed_date"
-    t.integer  "filament_id_id"
   end
 
   add_index "prints", ["filament_id"], name: "index_prints_on_filament_id", using: :btree
