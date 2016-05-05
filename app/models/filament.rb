@@ -7,4 +7,12 @@ class Filament < ActiveRecord::Base
     validates :weight, presence: true
     validates :cost, presence: true
     validates :diameter, presence: true
+  
+  #import class for CSV importing
+  require 'csv'
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      Filament.create! row.to_hash
+    end
+  end
 end

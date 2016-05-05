@@ -1,4 +1,9 @@
 class FilamentsController < ApplicationController
+    def import
+        Filament.import(params[:file])
+        redirect_to root_url, notice: "Filaments imported."
+    end
+    
     def index
         @filaments = Filament.order(:id)
     end

@@ -1,4 +1,9 @@
 class PrintsController < ApplicationController
+    def import
+        Print.import(params[:file])
+        redirect_to root_url, notice: "Prints imported."
+    end
+    
     def index
         @prints = Print.order(:id)
     end

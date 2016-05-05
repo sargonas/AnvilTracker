@@ -5,5 +5,13 @@ class Print < ActiveRecord::Base
     validates :weight, presence: true
     validates :price, presence: true
     validates :filament_id, presence: true
+    
+  #import class for CSV importing
+  require 'csv'
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      Print.create! row.to_hash
+    end
+  end
     validates :volume, presence: true
 end
