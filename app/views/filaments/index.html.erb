@@ -39,4 +39,11 @@
   </table>
   <br>
     <%= link_to '+Add Filament', new_filament_path, class: 'btn btn-primary' %>
+    <p>
+    <h3>Import Filaments</h3>
+      <%= form_tag import_filaments_path, multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag "Import CSV" %>
+      <% end %>
+    </p>
 </div>
