@@ -48,6 +48,16 @@
     </p>
     
     <p>
+        <%= f.label :print_time_in_seconds %>
+        <%= f.number_field :print_time %>
+    </p>
+    
+    <p>
+        <%= f.label :extruder_id %><br>
+        <%= f.number_field :extruder_id %>
+    </p>
+    
+    <p>
         <%= f.submit %>
     </p>
 <% end %>

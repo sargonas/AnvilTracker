@@ -39,6 +39,20 @@
 </p>
 
 <p>
+  <strong>Extruder:</strong>
+  <%= @print.extruder_id %>
+</p>
+
+<p>
+  <strong>Print time:</strong>
+  <% if (@print.print_time != nil) %>
+    <td><%= Time.at(@print.print_time).utc.strftime("%H:%M:%S") %></td>
+  <% else %>
+    <td> n/a </td>
+  <% end %>
+</p>
+
+<p>
   <strong>Price:</strong>
   <%= number_to_currency(@print.price) %>
 </p>

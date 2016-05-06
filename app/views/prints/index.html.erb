@@ -9,6 +9,8 @@
         <th>Length(mm)</th>
         <th>Weight(g)</th>
         <th>Volume(cm^3)</th>
+        <th>Print Time</th>
+        <th>Extruder ID</th>
         <th>Price</th>
       </tr>
       <% @prints.each do |print| %>
@@ -24,6 +26,12 @@
           <td><%= print.length %>mm</td>
           <td><%= print.weight %>g</td>
           <td><%= print.volume %></td>
+          <% if (print.print_time != nil) %>
+            <td><%= Time.at(print.print_time).utc.strftime("%H:%M:%S") %></td>
+          <% else %>
+            <td> n/a </td>
+          <% end %>
+          <td><%= print.extruder_id %></td>
           <td><%= number_to_currency(print.price) %></td>
           <td><%= link_to 'Show', print_path(print), class: 'btn btn-primary' %>
           <%= link_to 'Edit', edit_print_path(print), class: 'btn btn-warning' %>
