@@ -15,49 +15,50 @@
   <% end %>
     
     <p>
-        <%= f.label :name %><br>
+        <strong><%= f.label :name %><br></strong>
         <%= f.text_field :name %>
     </p>
     
     <p>
+        <strong>Filament</strong><br>
         <%= f.select :filament_id, options_for_select(@filament_options) %>
     </p>
     <p>
-        <%= f.label :length %><br>
+        <strong><%= f.label :length %></strong><br>
         <%= f.number_field :length %>
     </p>
     
     <p>
-        <%= f.label :weight %><br>
+        <strong><%= f.label :weight %></strong><br>
         <%= f.number_field :weight, :step => "0.01" %>
     </p>
     
     <p>
-        <%= f.label :volume %><br>
+        <strong><%= f.label :volume %></strong><br>
         <%= f.number_field :volume, :step => "0.01" %>
     </p>
     
     <p>
-        <%= f.label :price %><br>
+        <strong><%= f.label :price %></strong><br>
         <%= f.number_field :price, :step => "0.01" %>
     </p>
     
     <p>
-        <%= f.label :printed_date %><br>
+        <strong><%= f.label :printed_date %></strong><br>
         <%= f.date_field :printed_date %>
     </p>
     
     <p>
-        <%= f.label :print_time_in_seconds %>
+        <strong><%= f.label :print_time_in_seconds %></strong><br>
         <%= f.number_field :print_time %>
     </p>
     
     <p>
-        <%= f.label :extruder_id %><br>
+        <strong><%= f.label :extruder_id %></strong><br>
         <%= f.number_field :extruder_id %>
     </p>
     
     <p>
-        <%= f.submit %>
+        <%= f.submit class: 'btn btn-warning' %>
     </p>
 <% end %>

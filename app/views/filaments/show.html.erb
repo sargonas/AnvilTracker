@@ -43,6 +43,6 @@
   <%= @filament.archived %>
 </p>
 
-<%= link_to 'Edit', edit_filament_path(@filament) %>
-<%= link_to 'Back', filaments_path %>
-<%= link_to 'Home', root_path %>
+<%= link_to 'Edit', edit_filament_path(@filament), class: 'btn btn-warning' %>
+<%= link_to 'Filaments', filaments_path, class: 'btn btn-primary' %>
+<%= link_to 'Home', root_path, class: 'btn btn-primary' %>

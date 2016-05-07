@@ -28,9 +28,10 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <br><p><%= f.submit "Update", class: 'btn btn-warning' %>
+    <%= link_to "Back", :back, class: 'btn btn-primary' %></p>
   </div>
 <% end %>
 
 
-<%= link_to "Back", :back %>
+

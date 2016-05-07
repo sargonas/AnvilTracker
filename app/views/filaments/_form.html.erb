@@ -15,49 +15,49 @@
   <% end %>
     
     <p>
-        <%= f.label :name %><br>
+        <strong><%= f.label :name %></strong><br>
         <%= f.text_field :name %>
     </p>
     
     <p>
-        <%= f.label :material %><br>
+        <strong><%= f.label :material %></strong><br>
         <%= f.text_field :material %>
     </p>
     
     <p>
-        <%= f.label :color %><br>
+        <strong><%= f.label :color %></strong><br>
         <%= f.text_field :color %>
     </p>
     
     <p>
-        <%= f.label :length %><br>
+        <strong><%= f.label :length %></strong><br>
         <%= f.number_field :length %>
     </p>
     
     <p>
-        <%= f.label :weight %><br>
+        <strong><%= f.label :weight %></strong><br>
         <%= f.number_field :weight, :step => "0.01" %>
     </p>
     
     <p>
-        <%= f.label :diameter %><br>
+        <strong><%= f.label :diameter %></strong><br>
         <%= f.number_field :diameter, :step => "0.01" %>
     </p>
     
     <p>
-        <%= f.label :cost %><br>
+        <strong><%= f.label :cost %></strong><br>
         <%= f.number_field :cost, :step => "0.01" %>
     </p>
     
     <p>
-        <%= label :archived, "Available" %>
+        <strong><%= label :archived, "Available" %></strong>
         <%= f.radio_button :archived, false , :value => false %>
         <br>
-        <%= label :archived, "Archived"%>
+        <strong><%= label :archived, "Archived"%></strong>
         <%= f.radio_button :archived, true, :value => true%>
     </p>
     
     <p>
-        <%= f.submit %>
+        <%= f.submit class: 'btn btn-warning'  %>
     </p>
 <% end %>
