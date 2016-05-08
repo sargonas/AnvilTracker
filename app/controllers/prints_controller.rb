@@ -53,5 +53,8 @@ class PrintsController < ApplicationController
         def print_params
             params.require(:print).permit(:name, :length, :weight, :price, :filament_id, :printed_date, :volume, :extruder_id, :print_time)
         end
+        def print_cost
+            @print_cost = number_to_currency((Filament.find(print.filament_id).cost/Filament.find(print.filament_id).length)*print.length)
+        end
         
 end

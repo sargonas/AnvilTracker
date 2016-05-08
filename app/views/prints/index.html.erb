@@ -11,7 +11,9 @@
         <th>Volume(cm^3)</th>
         <th>Print Time</th>
         <th>Extruder ID</th>
-        <th>Price</th>
+        <th>Sold for</th>
+        <th> Material cost</th>
+        <th>Net</th>
       </tr>
       <% @prints.each do |print| %>
         <tr>
@@ -33,6 +35,12 @@
           <% end %>
           <td><%= print.extruder_id %></td>
           <td><%= number_to_currency(print.price) %></td>
+          <td><%= number_to_currency((Filament.find(print.filament_id).cost/Filament.find(print.filament_id).length)*print.length) %></td>
+          <% if (print.price != 0) %>
+            <td><%= number_to_currency(print.price-((Filament.find(print.filament_id).cost/Filament.find(print.filament_id).length)*print.length)) %></td>
+          <% else %>
+            <td> $0.00</td>
+          <% end %>
           <td><%= link_to 'Show', print_path(print), class: 'btn btn-primary' %>
           <%= link_to 'Edit', edit_print_path(print), class: 'btn btn-warning' %>
           <%= link_to 'Destroy', print_path(print),
