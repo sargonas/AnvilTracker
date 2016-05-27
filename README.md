@@ -29,7 +29,8 @@ CSV importing is extremely basic currently. To use it, you'll need to make sure
 the format is exactly what is expected, for the time being. Column headers need 
 to match the DB column names, and the print_time column needs to be in seconds.
 The columns can be in any order, however, though the date currently has to be in 
-**DD-MM-YYY** format. For filament, 1 for true and 0 for false for "Archived".
+**DD-MM-YYY** format. For filaments, Archived status is a boolean that should be
+set to 1 for true and 0 for false.
 
 ####Prints import format:
 
