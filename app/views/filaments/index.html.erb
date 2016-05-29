@@ -27,7 +27,22 @@
         <td><%= filament.diameter %></td>
         <td><%= filament.length %>mm</td>
         <td><%= filament.prints.sum(:length) %>mm</td>
-        <td><%= ((filament.prints.sum(:length) / filament.length)*100).round(2) %>%</td>
+        <% filament_percentage = (100-((filament.prints.sum(:length) / filament.length)*100)).round(2) %>
+        <% if (filament_percentage < 0) %>
+          <td bgcolor="#000000" style="color:#FFFFFF"> 0%</td>
+        <% elsif (filament_percentage > 70) %>
+          <td bgcolor="#ffffff"> <%= filament_percentage %>%</td>
+        <% elsif (filament_percentage > 50) %>
+          <td bgcolor="#37cc2a"> <%= filament_percentage %>%</td>
+        <% elsif (filament_percentage > 40) %>
+          <td bgcolor="#f0f215"> <%= filament_percentage %>%</td>
+        <% elsif (filament_percentage > 30) %>
+          <td bgcolor="#f6830d"> <%= filament_percentage %>%</td>
+        <% elsif (filament_percentage > 10) %>
+          <td bgcolor="#dd3131" style="color:#FFFFFF"> <%= filament_percentage %>%</td>
+        <% else %>
+          <td bgcolor="000000" style="color:#FFFFFF"> <%= filament_percentage %>%</td>
+        <% end %>
         <td><%= filament.weight %>g</td>
         <td><%= filament.prints.sum(:weight) %>g</td>
         <td><%= ((filament.prints.sum(:weight) / filament.weight)*100).round(2) %>%</td>
