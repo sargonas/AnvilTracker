@@ -5,7 +5,11 @@ class FilamentsController < ApplicationController
     end
     
     def index
-        @filaments = Filament.order(:id)
+        if params[:archived]
+            @filaments = Filament.where(:archived => params[:archived])
+        else
+            @filaments = Filament.order(:id)
+        end
     end
     
     def show

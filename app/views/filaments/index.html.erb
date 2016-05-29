@@ -1,4 +1,7 @@
 <h1>Listing filaments</h1>
+  <%= link_to "Active Filaments", filaments_path(:archived=>0) %> :: 
+  <%= link_to "Archvied Filaments", filaments_path(:archived=>1) %> :: 
+  <%= link_to "All Filaments", filaments_path %>
 <div class="index_tables">
   <table>
     <thread>
