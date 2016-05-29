@@ -6,7 +6,7 @@ class FilamentsController < ApplicationController
     
     def index
         if params[:archived]
-            @filaments = Filament.where(:archived => params[:archived])
+            @filaments = Filament.order(:id).where(:archived => params[:archived])
         else
             @filaments = Filament.order(:id)
         end
