@@ -37,9 +37,9 @@
         <% else %>
           <td>Available</td>
         <% end %>
-        <td><%= link_to 'Show', filament_path(filament), class: 'btn btn-primary' %>
+        <td><%= link_to 'Details', filament_path(filament), class: 'btn btn-primary' %>
         <%= link_to 'Edit', edit_filament_path(filament), class: 'btn btn-warning' %>
-        <%= link_to 'Destroy', filament_path(filament),
+        <%= link_to 'Delete', filament_path(filament),
                 method: :delete,
                 data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>

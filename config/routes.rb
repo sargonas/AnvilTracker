@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     patch '/users(.:format)' => 'devise/registrations#update'
   end
   get 'home/index'
+  get 'home/version'
   
   resources :filaments do
     collection { post :import }

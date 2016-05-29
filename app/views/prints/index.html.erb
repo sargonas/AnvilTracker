@@ -41,9 +41,9 @@
           <% else %>
             <td> $0.00</td>
           <% end %>
-          <td><%= link_to 'Show', print_path(print), class: 'btn btn-primary' %>
+          <td><%= link_to 'Details', print_path(print), class: 'btn btn-primary' %>
           <%= link_to 'Edit', edit_print_path(print), class: 'btn btn-warning' %>
-          <%= link_to 'Destroy', print_path(print),
+          <%= link_to 'Delete', print_path(print),
                   method: :delete,
                   data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
         </tr>
