@@ -6,9 +6,9 @@
   <table>
     <thread>
     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Material</th>
+      <th><%= sortable "id", "ID" %></th>
+      <th><%= sortable "name", "Name" %></th>
+      <th><%= sortable "material", "Material" %></th>
       <th>Color</th>
       <th>Diameter</th>
       <th>Length (mm)</th>
@@ -16,9 +16,9 @@
       <th>Remaining Length</th>
       <th>Weight (g)</th>
       <th>Weight Used</th>
-      <th>Remaining Weight</th>
+      <th>Remaining Weight"</th>
       <th>Cost</th>
-      <th>Availability</th>
+      <th><%= sortable "archived", "Availability" %></th>
     </tr>
     </thread>
     <% @filaments.each do |filament| %>

@@ -1,11 +1,12 @@
 class PrintsController < ApplicationController
+    helper_method :sort_column, :sort_direction
     def import
         Print.import(params[:file])
         redirect_to root_url, notice: "Prints imported."
     end
     
     def index
-        @prints = Print.order(:id)
+        @prints = Print.order(sort_column + " " + sort_direction)
     end
     
     def show
@@ -52,6 +53,13 @@ class PrintsController < ApplicationController
     private
         def print_params
             params.require(:print).permit(:name, :length, :weight, :price, :filament_id, :printed_date, :volume, :extruder_id, :print_time)
+        end
+        def sort_column
+            Filament.column_names.include?(params[:sort]) ? params[:sort] : "id"
+        end
+  
+        def sort_direction
+            %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
         end
         #does this actually do anything? This might be leftover old experimental code. Need to remove if so!
         #def print_cost

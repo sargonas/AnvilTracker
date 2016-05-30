@@ -2,17 +2,17 @@
   <div class="index_tables"> 
     <table>
       <tr>
-        <th>ID</th>
-        <th>Date</th>
-        <th>Name</th>
+        <th><%= sortable "id", "ID" %></th>
+        <th><%= sortable "printed_date", "Date" %></th>
+        <th><%= sortable "name", "Name" %></th>
         <th>Filament</th>
-        <th>Length(mm)</th>
-        <th>Weight(g)</th>
+        <th><%= sortable "length", "Length(mm)" %></th>
+        <th><%= sortable "weight", "Weight(g)" %></th>
         <th>Volume(cm^3)</th>
         <th>Print Time</th>
         <th>Extruder ID</th>
         <th>Sold for</th>
-        <th> Material cost</th>
+        <th>Material cost</th>
         <th>Net</th>
       </tr>
       <% @prints.each do |print| %>

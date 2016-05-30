@@ -1,4 +1,5 @@
 class FilamentsController < ApplicationController
+    helper_method :sort_column, :sort_direction
     def import
         Filament.import(params[:file])
         redirect_to root_url, notice: "Filaments imported."
@@ -6,9 +7,9 @@ class FilamentsController < ApplicationController
     
     def index
         if params[:archived]
-            @filaments = Filament.order(:id).where(:archived => params[:archived])
+            @filaments = Filament.order(sort_column + " " + sort_direction).where(:archived => params[:archived])
         else
-            @filaments = Filament.order(:id)
+            @filaments = Filament.order(sort_column + " " + sort_direction)
         end
     end
     
@@ -55,4 +56,13 @@ class FilamentsController < ApplicationController
         def filament_params
             params.require(:filament).permit(:name, :material, :color, :length, :weight, :cost, :diameter, :archived)
         end
+        
+        def sort_column
+            Filament.column_names.include?(params[:sort]) ? params[:sort] : "id"
+        end
+  
+        def sort_direction
+            %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+        end
+    
 end
