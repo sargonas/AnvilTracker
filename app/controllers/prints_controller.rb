@@ -15,12 +15,12 @@ class PrintsController < ApplicationController
     
     def new
         @print = Print.new
-        @filament_options = Filament.all.map{ |f| [ f.name, f.id ] }
+        @filament_options = Filament.where(:archived => false).map{ |f| [ f.name, f.id ] }
     end
     
     def edit
         @print = Print.find(params[:id])
-        @filament_options = Filament.all.map{ |f| [ f.name, f.id ] }
+        @filament_options = Filament.where(:archived => false).map{ |f| [ f.name, f.id ] }
     end
     
     def create
@@ -55,7 +55,7 @@ class PrintsController < ApplicationController
             params.require(:print).permit(:name, :length, :weight, :price, :filament_id, :printed_date, :volume, :extruder_id, :print_time)
         end
         def sort_column
-            Filament.column_names.include?(params[:sort]) ? params[:sort] : "id"
+            Print.column_names.include?(params[:sort]) ? params[:sort] : "id"
         end
   
         def sort_direction
