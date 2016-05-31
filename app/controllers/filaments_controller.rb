@@ -1,6 +1,7 @@
 class FilamentsController < ApplicationController
     helper_method :sort_column, :sort_direction
-    def import
+
+    def import  
         Filament.import(params[:file])
         redirect_to root_url, notice: "Filaments imported."
     end
@@ -14,7 +15,7 @@ class FilamentsController < ApplicationController
     end
     
     def show
-        @filament = Filament.find(params[:id])
+        @filament = current_user.filaments.find(params[:id])
     end
     
     def new
@@ -22,7 +23,7 @@ class FilamentsController < ApplicationController
     end
     
     def edit
-        @filament = Filament.find(params[:id])
+        @filament = current_user.filaments.find(params[:id])
     end
     
     def create
@@ -37,7 +38,7 @@ class FilamentsController < ApplicationController
     end
     
     def update
-        @filament = Filament.find(params[:id])
+        @filament = current_user.filaments.find(params[:id])
         @filament.user_id = current_user.id
  
         if @filament.update(filament_params)
@@ -48,7 +49,7 @@ class FilamentsController < ApplicationController
     end
     
     def destroy
-        @filament = Filament.find(params[:id])
+        @filament = current_user.filaments.find(params[:id])
         @filament.destroy
  
         redirect_to filaments_path
@@ -66,5 +67,8 @@ class FilamentsController < ApplicationController
         def sort_direction
             %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
         end
-    
+    rescue_from ActiveRecord::RecordNotFound do
+        flash[:notice] = 'You do not have access to do that'
+        redirect_to filaments_path
+    end
 end

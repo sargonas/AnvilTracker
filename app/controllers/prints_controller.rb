@@ -1,5 +1,6 @@
 class PrintsController < ApplicationController
     helper_method :sort_column, :sort_direction
+    
     def import
         Print.import(params[:file])
         redirect_to root_url, notice: "Prints imported."
@@ -10,7 +11,7 @@ class PrintsController < ApplicationController
     end
     
     def show
-        @print = Print.find(params[:id])
+        @print = current_user.prints.find(params[:id])
     end
     
     def new
@@ -19,8 +20,7 @@ class PrintsController < ApplicationController
     end
     
     def edit
-        @print = Print.find(params[:id])
-        @filament_options = Filament.where(:archived => false).map{ |f| [ f.name, f.id ] }
+        @print = current_user.prints.find(params[:id])
     end
     
     def create
@@ -35,7 +35,7 @@ class PrintsController < ApplicationController
     end
     
     def update
-        @print = Print.find(params[:id])
+        @print = current_user.prints.find(params[:id])
         @print.user_id = current_user.id
  
         if @print.update(print_params)
@@ -46,7 +46,7 @@ class PrintsController < ApplicationController
     end
     
     def destroy
-        @print = Print.find(params[:id])
+        @print = current_user.prints.find(params[:id])
         @print.destroy
  
         redirect_to prints_path
@@ -68,5 +68,8 @@ class PrintsController < ApplicationController
          #   @print_cost = number_to_currency((Filament.find(print.filament_id).cost/Filament.find(print.filament_id).length)*print.length)
           #  puts "ran that weird code!"
         #end
-        
+    rescue_from ActiveRecord::RecordNotFound do
+        flash[:notice] = 'You do not have access to do that'
+        redirect_to prints_path
+    end    
 end
