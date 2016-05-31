@@ -35,7 +35,7 @@
         <% if (filament_percentage < 0) %>
           <td bgcolor="#000000" style="color:#FFFFFF"> 0%</td>
         <% elsif (filament_percentage > 70) %>
-          <td bgcolor="#ffffff"> <%= filament_percentage %>%</td>
+          <td><%= filament_percentage %>%</td>
         <% elsif (filament_percentage > 50) %>
           <td bgcolor="#37cc2a"> <%= filament_percentage %>%</td>
         <% elsif (filament_percentage > 40) %>
