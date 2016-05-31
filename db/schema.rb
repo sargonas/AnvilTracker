@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160506021334) do
+ActiveRecord::Schema.define(version: 20160531204917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160506021334) do
     t.datetime "updated_at",                 null: false
     t.decimal  "diameter"
     t.boolean  "archived",   default: false
+    t.integer  "user_id"
   end
 
   create_table "prints", force: :cascade do |t|
@@ -41,6 +42,7 @@ ActiveRecord::Schema.define(version: 20160506021334) do
     t.decimal  "volume"
     t.integer  "extruder_id"
     t.integer  "print_time"
+    t.integer  "user_id"
   end
 
   add_index "prints", ["filament_id"], name: "index_prints_on_filament_id", using: :btree

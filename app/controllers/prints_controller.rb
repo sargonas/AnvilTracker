@@ -6,7 +6,7 @@ class PrintsController < ApplicationController
     end
     
     def index
-        @prints = Print.order(sort_column + " " + sort_direction)
+        @prints = Print.order(sort_column + " " + sort_direction).where(:user_id => current_user.id)
     end
     
     def show
@@ -25,6 +25,7 @@ class PrintsController < ApplicationController
     
     def create
         @print = Print.new(print_params)
+        @print.user_id = current_user.id
         
         if @print.save
             redirect_to @print
@@ -35,6 +36,7 @@ class PrintsController < ApplicationController
     
     def update
         @print = Print.find(params[:id])
+        @print.user_id = current_user.id
  
         if @print.update(print_params)
             redirect_to @print

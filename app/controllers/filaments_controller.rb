@@ -7,9 +7,9 @@ class FilamentsController < ApplicationController
     
     def index
         if params[:archived]
-            @filaments = Filament.order(sort_column + " " + sort_direction).where(:archived => params[:archived])
+            @filaments = Filament.order(sort_column + " " + sort_direction).where(:archived => params[:archived], :user_id => current_user.id)
         else
-            @filaments = Filament.order(sort_column + " " + sort_direction)
+            @filaments = Filament.order(sort_column + " " + sort_direction).where(:user_id => current_user.id)
         end
     end
     
@@ -27,6 +27,7 @@ class FilamentsController < ApplicationController
     
     def create
         @filament = Filament.new(filament_params)
+        @filament.user_id = current_user.id
         
         if @filament.save
             redirect_to @filament
@@ -37,6 +38,7 @@ class FilamentsController < ApplicationController
     
     def update
         @filament = Filament.find(params[:id])
+        @filament.user_id = current_user.id
  
         if @filament.update(filament_params)
             redirect_to @filament

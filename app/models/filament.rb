@@ -1,5 +1,6 @@
 class Filament < ActiveRecord::Base
     has_many :prints, dependent: :nullify
+    belongs_to :user
     validates :name, presence: true
     validates :material, presence: true
     validates :color, presence: true
@@ -7,6 +8,7 @@ class Filament < ActiveRecord::Base
     validates :weight, presence: true
     validates :cost, presence: true
     validates :diameter, presence: true
+    validates :user_id, presence: true
   
   #import class for CSV importing
   require 'csv'
