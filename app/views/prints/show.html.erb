@@ -57,6 +57,11 @@
   <%= number_to_currency(@print.price) %>
 </p>
 
+<p>
+  <strong>Notes:</strong>
+  <%= @print.notes %>
+</p>
+
 <%= link_to 'Edit', edit_print_path(@print), class: 'btn btn-warning' %>
 <%= link_to 'Prints', prints_path, class: 'btn btn-primary' %>
 <%= link_to 'Home', root_path, class: 'btn btn-primary' %>
