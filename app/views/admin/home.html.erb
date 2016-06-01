@@ -1,0 +1,30 @@
+<h1>Listing users</h1>
+  <div class="index_tables"> 
+    <table>
+      <tr>
+        <th><%= sortable "id", "ID" %></th>
+        <th><%= sortable "email", "Email" %></th>
+        <th><%= sortable "last_sign_in_at", "Last signed in" %></th>
+        <th>Last IP</th>
+        <th>Admin</th>
+      </tr>
+      <% @users.each do |user| %>
+        <tr>
+            <td><%= user.id %></td>
+            <td><%= user.email %></td>
+            <td><%= user.last_sign_in_at %></td>
+            <td><%= user.last_sign_in_ip %></td>
+            <% if (user.admin?) %>
+                <td>Y</td>
+            <% else %>
+                <td>N</td>
+            <% end %>
+          <td><%= link_to 'Details', edit_user_registration_path(user), class: 'btn btn-primary' %>
+          <%= link_to 'Edit', edit_user_registration_path(user), class: 'btn btn-warning' %>
+          <%= link_to 'Delete', edit_user_registration_path(user),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>

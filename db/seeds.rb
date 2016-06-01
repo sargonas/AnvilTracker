@@ -19,5 +19,5 @@ Print.create(name: 'USER2 Marvin nGen Test', length: 350, weight: 2.80, price: 0
 Print.create(name: 'USER2 Tesla Coil Funnel', length: 7390, weight: 44, price: 17.82, filament_id: 4, printed_date: "2015-02-21", volume: 47.15, print_time: 16576, user_id: 2)
 Print.create(name: 'USER2 Nes Pi Case', length: 11730, weight: 93.56, price: 50.00, filament_id: 1, printed_date: "2015-03-05", volume: 74.86, print_time: 34289, user_id: 2)
 #Default user seeding
-user = User.create! :email => 'admin@example.com', :password => 'changeme', :password_confirmation => 'changeme'
-user = User.create! :email => 'user2@example.com', :password => 'changeme', :password_confirmation => 'changeme'
+user = User.create! :email => 'admin@example.com', :password => 'changeme', :password_confirmation => 'changeme', :admin => 1
+user = User.create! :email => 'user2@example.com', :password => 'changeme', :password_confirmation => 'changeme', :admin => 0
