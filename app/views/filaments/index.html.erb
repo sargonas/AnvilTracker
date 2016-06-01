@@ -30,11 +30,12 @@
         <td><%= filament.diameter %></td>
         <td><%= filament.length %>mm</td>
         <td><%= filament.prints.sum(:length) %>mm</td>
+        <%# Exceptionally ugly code to loop through factoring the filament % and color coding %>
         <% filament_percentage = (100-((filament.prints.sum(:length) / filament.length)*100)).round(2) %>
         <% if (filament_percentage < 0) %>
           <td bgcolor="#000000" style="color:#FFFFFF"> 0%</td>
         <% elsif (filament_percentage > 70) %>
-          <td bgcolor="#ffffff"> <%= filament_percentage %>%</td>
+          <td><%= filament_percentage %>%</td>
         <% elsif (filament_percentage > 50) %>
           <td bgcolor="#37cc2a"> <%= filament_percentage %>%</td>
         <% elsif (filament_percentage > 40) %>
@@ -50,6 +51,7 @@
         <td><%= filament.prints.sum(:weight) %>g</td>
         <td><%= ((filament.prints.sum(:weight) / filament.weight)*100).round(2) %>%</td>
         <td><%= number_to_currency(filament.cost) %></td>
+        <%# Archived status logic %>
         <% if (filament.archived == true) %>
           <td>Archived</td>
         <% else %>

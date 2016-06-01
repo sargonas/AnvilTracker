@@ -1,6 +1,7 @@
 class PrintsController < ApplicationController
     helper_method :sort_column, :sort_direction
     
+    #CSV import support
     def import
         Print.import(params[:file])
         redirect_to root_url, notice: "Prints imported."
@@ -21,6 +22,8 @@ class PrintsController < ApplicationController
     
     def edit
         @print = current_user.prints.find(params[:id])
+        #does archived false belong here? let's investigate some time
+        @filament_options = Filament.where(:archived => false).map{ |f| [ f.name, f.id ] }
     end
     
     def create
@@ -56,6 +59,7 @@ class PrintsController < ApplicationController
         def print_params
             params.require(:print).permit(:name, :length, :weight, :price, :filament_id, :printed_date, :volume, :extruder_id, :print_time)
         end
+        #controls to help with sorting the indexes
         def sort_column
             Print.column_names.include?(params[:sort]) ? params[:sort] : "id"
         end
