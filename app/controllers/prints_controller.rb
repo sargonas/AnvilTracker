@@ -54,7 +54,7 @@ class PrintsController < ApplicationController
     
     private
         def print_params
-            params.require(:print).permit(:name, :length, :weight, :price, :filament_id, :printed_date, :volume, :extruder_id, :print_time)
+            params.require(:print).permit(:name, :length, :weight, :price, :filament_id, :printed_date, :volume, :extruder_id, :print_time, :notes)
         end
         #controls to help with sorting the indexes
         def sort_column
