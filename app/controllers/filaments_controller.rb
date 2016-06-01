@@ -3,7 +3,7 @@ class FilamentsController < ApplicationController
     
     #CSV import logic
     def import  
-        Filament.import(params[:file])
+        Filament.import(params[:file], current_user.id)
         redirect_to root_url, notice: "Filaments imported."
     end
     

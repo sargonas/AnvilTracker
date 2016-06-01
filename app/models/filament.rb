@@ -12,9 +12,9 @@ class Filament < ActiveRecord::Base
   
   #import class for CSV importing
   require 'csv'
-  def self.import(file)
+  def self.import(file, user_id)
     CSV.foreach(file.path, headers: true) do |row|
-      Filament.create! row.to_hash
+      Filament.create! row.to_hash.merge(user_id: user_id)
     end
   end
 end
