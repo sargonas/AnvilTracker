@@ -1,24 +1,24 @@
 class AdminController < ApplicationController
-  before_action :authenticate_admin!
-  helper_method :sort_column, :sort_direction
-  
-  def authenticate_admin!
+    before_action :authenticate_admin!
+    helper_method :sort_column, :sort_direction
+    
+    def authenticate_admin!
     #check if admin flag is true
     unless current_user.admin
       #if not bounce out
       redirect_to root_path
     end
-  end
-  
-  def index
-  end
-
-  def home
+    end
+    
+    def index
+    end
+    
+    def home
       @users = User.order(sort_column + " " + sort_direction)
-  end
+    end
     
     def show
-        @user = current_user.users.find(params[:id])
+        @user = User.find(params[:id])
     end
     
     def new
@@ -26,7 +26,7 @@ class AdminController < ApplicationController
     end
     
     def edit
-        @user = current_user.users.find(params[:id])
+        @user = User.find(params[:id])
     end
     
     def create
@@ -41,9 +41,9 @@ class AdminController < ApplicationController
     end
     
     def update
-        @user = current_user.users.find(params[:id])
+        @user = User.find(params[:id])
         @user.user_id = current_user.id
- 
+    
         if @user.update(user_params)
             redirect_to @user
         else
@@ -52,20 +52,20 @@ class AdminController < ApplicationController
     end
     
     def destroy
-        @user = current_user.users.find(params[:id])
+        @user = User.find(params[:id])
         @user.destroy
- 
-        redirect_to admin_home
+    
+        redirect_to admin_home, notice: "User deleted"
     end
     
     private
         def user_params
-            params.require(:user).permit(:name, :material, :color, :length, :weight, :cost, :diameter, :archived)
+            params.require(:user).permit(:id, :email, :last_sign_in_at, :last_sign_in_ip)
         end
         def sort_column
             Filament.column_names.include?(params[:sort]) ? params[:sort] : "id"
         end
-  
+    
         def sort_direction
             %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
         end

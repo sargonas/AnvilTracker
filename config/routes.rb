@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   get 'admin/home'
 
-  devise_for :users 
+  #load devise for user controls
+  devise_for :users
+  
   get 'home/index'
   get 'home/version'
-  
-  #reroute admin to /admin
   
   resources :filaments do
     collection { post :import }
