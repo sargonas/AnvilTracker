@@ -13,7 +13,6 @@
       </ul>
     </div>
   <% end %>
-    
     <p>
         <strong><%= f.label :name %></strong><br>
         <%= f.text_field :name %>
@@ -56,7 +55,7 @@
         <strong><%= label :archived, "Archived"%></strong>
         <%= f.radio_button :archived, true, :value => true%>
     </p>
-    
+        
     <p>
         <%= f.submit class: 'btn btn-warning'  %>
     </p>

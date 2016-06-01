@@ -1,5 +1,6 @@
 class Filament < ActiveRecord::Base
     has_many :prints, dependent: :nullify
+    belongs_to :user
     validates :name, presence: true
     validates :material, presence: true
     validates :color, presence: true
@@ -7,12 +8,13 @@ class Filament < ActiveRecord::Base
     validates :weight, presence: true
     validates :cost, presence: true
     validates :diameter, presence: true
+    validates :user_id, presence: true
   
   #import class for CSV importing
   require 'csv'
-  def self.import(file)
+  def self.import(file, user_id)
     CSV.foreach(file.path, headers: true) do |row|
-      Filament.create! row.to_hash
+      Filament.create! row.to_hash.merge(user_id: user_id)
     end
   end
 end

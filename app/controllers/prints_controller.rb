@@ -1,17 +1,18 @@
 class PrintsController < ApplicationController
     helper_method :sort_column, :sort_direction
+    
     #CSV import support
     def import
-        Print.import(params[:file])
+        Print.import(params[:file], current_user.id)
         redirect_to root_url, notice: "Prints imported."
     end
     
     def index
-        @prints = Print.order(sort_column + " " + sort_direction)
+        @prints = Print.order(sort_column + " " + sort_direction).where(:user_id => current_user.id)
     end
     
     def show
-        @print = Print.find(params[:id])
+        @print = current_user.prints.find(params[:id])
     end
     
     def new
@@ -20,13 +21,14 @@ class PrintsController < ApplicationController
     end
     
     def edit
-        @print = Print.find(params[:id])
+        @print = current_user.prints.find(params[:id])
         #does archived false belong here? let's investigate some time
         @filament_options = Filament.where(:archived => false).map{ |f| [ f.name, f.id ] }
     end
     
     def create
         @print = Print.new(print_params)
+        @print.user_id = current_user.id
         
         if @print.save
             redirect_to @print
@@ -36,7 +38,8 @@ class PrintsController < ApplicationController
     end
     
     def update
-        @print = Print.find(params[:id])
+        @print = current_user.prints.find(params[:id])
+        @print.user_id = current_user.id
  
         if @print.update(print_params)
             redirect_to @print
@@ -46,7 +49,7 @@ class PrintsController < ApplicationController
     end
     
     def destroy
-        @print = Print.find(params[:id])
+        @print = current_user.prints.find(params[:id])
         @print.destroy
  
         redirect_to prints_path
@@ -69,5 +72,8 @@ class PrintsController < ApplicationController
          #   @print_cost = number_to_currency((Filament.find(print.filament_id).cost/Filament.find(print.filament_id).length)*print.length)
           #  puts "ran that weird code!"
         #end
-        
+    rescue_from ActiveRecord::RecordNotFound do
+        flash[:notice] = 'You do not have access to do that'
+        redirect_to prints_path
+    end    
 end
