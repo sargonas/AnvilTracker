@@ -3,7 +3,7 @@ class PrintsController < ApplicationController
     
     #CSV import support
     def import
-        Print.import(params[:file])
+        Print.import(params[:file], current_user.id)
         redirect_to root_url, notice: "Prints imported."
     end
     
