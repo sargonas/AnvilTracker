@@ -22,7 +22,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 #custom
-gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'bootstrap-sass'
 # Use postgresqlbundle as the database for Active Record
 gem 'pg'
 

@@ -1,6 +1,6 @@
 <h1>Listing filaments</h1>
-  <%= link_to "Active Filaments", filaments_path(:archived=>0) %> :: 
-  <%= link_to "Archvied Filaments", filaments_path(:archived=>1) %> :: 
+  <%= link_to "Active Filaments", filaments_path(:archived=>0) %> ::
+  <%= link_to "Archvied Filaments", filaments_path(:archived=>1) %> ::
   <%= link_to "All Filaments", filaments_path %>
 <div class="index_tables">
   <table>
@@ -19,6 +19,7 @@
       <th>Remaining Weight"</th>
       <th>Cost</th>
       <th><%= sortable "archived", "Availability" %></th>
+      <th>Actions</th>
     </tr>
     </thread>
     <% @filaments.each do |filament| %>
@@ -55,11 +56,19 @@
         <% else %>
           <td>Available</td>
         <% end %>
-        <td><%= link_to 'Details', filament_path(filament), class: 'btn btn-primary' %>
-        <%= link_to 'Edit', edit_filament_path(filament), class: 'btn btn-warning' %>
-        <%= link_to 'Delete', filament_path(filament),
-                method: :delete,
-                data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        <td>
+          <%= link_to filament_path(filament) do %>
+            <span class="glyphicon glyphicon-info-sign"></span>
+          <% end %>
+          <%= link_to edit_filament_path(filament) do %>
+            <span class="glyphicon glyphicon-pencil"></span>
+          <% end %>
+          <%= link_to filament_path(filament),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } do %>
+            <span class="glyphicon glyphicon-trash"></span>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </table>

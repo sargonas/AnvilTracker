@@ -7,7 +7,7 @@
   <strong>Name:</strong>
   <%= @filament.name %>
 </p>
- 
+
 <p>
   <strong>Material:</strong>
   <%= @filament.material %>
@@ -43,6 +43,6 @@
   <%= @filament.archived %>
 </p>
 
-<%= link_to 'Edit', edit_filament_path(@filament), class: 'btn btn-warning' %>
-<%= link_to 'Filaments', filaments_path, class: 'btn btn-primary' %>
-<%= link_to 'Home', root_path, class: 'btn btn-primary' %>
+<%= link_to 'Edit', edit_filament_path(@filament), class: 'btn btn-sm btn-warning' %>
+<%= link_to 'Filaments', filaments_path, class: 'btn btn-sm btn-primary' %>
+<%= link_to 'Home', root_path, class: 'btn btn-sm btn-primary' %>

@@ -15,9 +15,10 @@ development:
   database: development
   pool: 5
   username: postgres
-  password: development
+  password: admin
   template: template0
-  
+  port: 5433
+
 test:
   adapter: postgresql
   encoding: unicode
@@ -26,8 +27,8 @@ test:
   username: postgres
   password: development
   template: template0
-  
-  
+
+
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
