@@ -1,7 +1,7 @@
 # AnvilTracker
 
 A (currently very basic) system for tracking 3D Printing filaments, and your prints.
-Designed for tracking used filaments, remaining amounts, total materials costs 
+Designed for tracking used filaments, remaining amounts, total materials costs
 and sold profits (optionally) in place of my bulky, complicated, and cumbersome
 spreadsheet I've been using. :)
 
@@ -15,7 +15,7 @@ made sense!
  - Track filament consumed per spool pased on prints.
  - Basic user authentication for general security.
  - Importing of batches of Filaments or Prints via CSV.
- 
+
 ## Future plans:
  - Reporting system for reports on time and materials cost/profits
  - Tagging for prints for more detailed reporting.
@@ -25,10 +25,10 @@ made sense!
 
 
 ###CSV Import instructions
-CSV importing is extremely basic currently. To use it, you'll need to make sure 
-the format is exactly what is expected, for the time being. Column headers need 
+CSV importing is extremely basic currently. To use it, you'll need to make sure
+the format is exactly what is expected, for the time being. Column headers need
 to match the DB column names, and the print_time column needs to be in seconds.
-The columns can be in any order, however, though the date currently has to be in 
+The columns can be in any order, however, though the date currently has to be in
 **DD-MM-YYY** format. For filaments, Archived status is a boolean that should be
 set to 1 for true and 0 for false.
 
@@ -36,7 +36,7 @@ set to 1 for true and 0 for false.
 
 | printed_date | name | print_time | filament_id | extruder_id | length | weight | volume | price |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| DD/MM/YYY | textual name | seconds | filament.id of filament | extruder name | decimal | decimal | decimal | decimal | 
+| DD/MM/YYY | textual name | seconds | filament.id of filament | extruder name | decimal | decimal | decimal | decimal |
 | 17/05/2016 | Test Sphere | 7800 | 15 | mb2 | 42378.1 | 14.99 | 18.623 | 0.00 |
 
 ####Filaments import format:
@@ -45,3 +45,34 @@ set to 1 for true and 0 for false.
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | name | material type | color | filament's diameter | weight of spool | length of spool | cost of spool | boolean |
 | CF white #1 | PLA | white | 2.85 | 750 | 90000 | 35.00 | 0 |
+
+# Setup
+## c9.io
+
+1. Create a new workspace, choose hosted, paste repo address.
+1. From the IDE, open terminal
+1. Modify PostgreSQL Authentication Method. It needs to be more permissive.
+```
+sudo vi /etc/postgresql/9.3/main/pg_hba.conf
+```
+Change
+```
+local   all             postgres                                peer
+```
+To
+```
+local   all             postgres                                trust
+```
+1. Install gems
+```
+bundle install
+```
+1. Start PostgreSQL, run rake tasks
+```
+sudo service postgresql start
+rake db:create && rake db:migrate
+```
+1. Start server
+```
+rails s -p $PORT -b $IP
+```
