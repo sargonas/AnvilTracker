@@ -8,6 +8,7 @@ one:
   printed_date: 2015-03-05
   filament_id: 1
   volume: 10.01
+  user_id: 1
 
 two:
   name: MyString
@@ -17,3 +18,4 @@ two:
   printed_date: 2015-03-05
   filament_id: 2
   volume: 123.99
+  user_id: 2

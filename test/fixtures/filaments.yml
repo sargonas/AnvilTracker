@@ -10,6 +10,7 @@ one:
   cost: 1
   diameter: 2.85
   archived: false
+  user_id: 1
 
 two:
   id: 2
@@ -21,3 +22,4 @@ two:
   cost: 1
   diameter: 1.75
   archived: true
+  user_id: 2
