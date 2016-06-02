@@ -50,7 +50,11 @@
     
     <p>
         <strong><%= f.label :print_duration, "Print Duration in HH:MM:SS" %></strong><br>
-        <%= f.text_field :print_duration, :value => Time.at(@print.print_time).utc.strftime("%H:%M:%S") %>
+        <% if @print.print_time != nil %>
+            <%= f.text_field :print_duration, :value => Time.at(@print.print_time).utc.strftime("%H:%M:%S") %>
+        <% else %>
+            <%= f.text_field :print_duration %>
+        <% end %>
     </p>
     
     <p>
