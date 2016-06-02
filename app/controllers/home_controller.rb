@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
   end
+  #controls to help populat the version page with relevant env details for debugging
   def version
     @version_number = ENV["HEROKU_RELEASE_VERSION"]
     if @version_number == nil

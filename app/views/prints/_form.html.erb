@@ -49,14 +49,25 @@
     </p>
     
     <p>
-        <strong><%= f.label :print_time_in_seconds %></strong><br>
-        <%= f.number_field :print_time %>
+        <strong><%= f.label :print_duration, "Print Duration in HH:MM:SS" %></strong><br>
+        <%-# determine if Edit or Create, and pre-populate accordingly -%>
+        <% if @print.print_time != nil %>
+            <%= f.text_field :print_duration, :value => Time.at(@print.print_time).utc.strftime("%H:%M:%S") %>
+        <% else %>
+            <%= f.text_field :print_duration %>
+        <% end %>
     </p>
     
     <p>
         <strong><%= f.label :extruder_id %></strong><br>
         <%= f.number_field :extruder_id %>
     </p>
+    
+    <p>
+        <strong><%= f.label :notes %></strong><br>
+        <%= f.text_area :notes %>
+    </p>
+
     
     <p>
         <%= f.submit class: 'btn btn-warning' %>
