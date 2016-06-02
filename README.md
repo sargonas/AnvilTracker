@@ -15,6 +15,8 @@ made sense!
  - Track filament consumed per spool pased on prints.
  - Basic user authentication for general security.
  - Importing of batches of Filaments or Prints via CSV.
+ - Multi-user support w/ individual inventories
+ - archival of old filaments
 
 ## Future plans:
  - Reporting system for reports on time and materials cost/profits
@@ -34,10 +36,10 @@ set to 1 for true and 0 for false.
 
 ####Prints import format:
 
-| printed_date | name | print_time | filament_id | extruder_id | length | weight | volume | price |
+| printed_date | name | print_time | filament_id | extruder_id | length | weight | volume | price | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| DD/MM/YYY | textual name | seconds | filament.id of filament | extruder name | decimal | decimal | decimal | decimal |
-| 17/05/2016 | Test Sphere | 7800 | 15 | mb2 | 42378.1 | 14.99 | 18.623 | 0.00 |
+| DD/MM/YYY | textual name | seconds | filament.id of filament | extruder name | decimal | decimal | decimal | decimal | text |
+| 17/05/2016 | Test Sphere | 7800 | 15 | mb2 | 42378.1 | 14.99 | 18.623 | 0.00 | this print was awesome! |
 
 ####Filaments import format:
 
