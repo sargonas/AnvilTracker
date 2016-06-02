@@ -46,12 +46,12 @@ set to 1 for true and 0 for false.
 | name | material type | color | filament's diameter | weight of spool | length of spool | cost of spool | boolean |
 | CF white #1 | PLA | white | 2.85 | 750 | 90000 | 35.00 | 0 |
 
-# Setup
-## c9.io
+## Development environment setup
+### c9.io
 
 1. Create a new workspace, choose hosted, paste repo address.
-1. From the IDE, open terminal
-1. Modify PostgreSQL Authentication Method. It needs to be more permissive.
+2. From the IDE, open terminal
+3. Modify your PostgreSQL Authentication Method. It needs to be more permissive.
 ```
 sudo vi /etc/postgresql/9.3/main/pg_hba.conf
 ```
@@ -63,16 +63,20 @@ To
 ```
 local   all             postgres                                trust
 ```
-1. Install gems
+4. Install gems
 ```
 bundle install
 ```
-1. Start PostgreSQL, run rake tasks
+5. Start PostgreSQL, run rake tasks
 ```
 sudo service postgresql start
 rake db:create && rake db:migrate
 ```
-1. Start server
-```
-rails s -p $PORT -b $IP
-```
+6. Start server via the "Run" button under the "Run Configuration" console tab. (You can open a new tab for this with the console + tab icon)
+7. (optional) for local mail server functions to work you'll need to set your ENV variables. The ENVs are set on C9 under the "Run Configuration" console tab by clicking ENV on the far right. Be sure to restart the server after setting these if it is running!
+    - MAIL_HOSTNAME (hostname of the SMTP server)
+    - MAIL_DOMAIN (the part after the @, not server domain)
+    - MAIL_USERNAME (smtp login email address)
+    - MAIL_PASSWORD (smtp login password)
+    
+Be sure to restart the server after setting these if it is running!
