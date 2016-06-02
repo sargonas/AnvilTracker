@@ -50,6 +50,7 @@
     
     <p>
         <strong><%= f.label :print_duration, "Print Duration in HH:MM:SS" %></strong><br>
+        <%-# determine if Edit or Create, and pre-populate accordingly -%>
         <% if @print.print_time != nil %>
             <%= f.text_field :print_duration, :value => Time.at(@print.print_time).utc.strftime("%H:%M:%S") %>
         <% else %>

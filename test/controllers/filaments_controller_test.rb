@@ -23,52 +23,74 @@ class FilamentsControllerTest < ActionController::TestCase
     get :new
     assert_response :redirect
   end
-  test "should create filament when signed in" do
+  test "should create User1 filament when signed in as user 1" do
     sign_in User.first
     assert_difference('Filament.count') do
-      post :create, filament: { name: @filament.name, material: @filament.material, color: @filament.color, length: @filament.length, weight: @filament.weight, cost: @filament.cost, diameter: @filament.diameter, archived: @filament.archived }
+      post :create, filament: { name: @filament.name, material: @filament.material, color: @filament.color, length: @filament.length, weight: @filament.weight, cost: @filament.cost, diameter: @filament.diameter, archived: @filament.archived, user_id: '1' }
     end
     assert_redirected_to filament_path(assigns(:filament))
   end
   test "should not create filament when signed out" do
     assert_no_difference('Filament.count') do
-      post :create, filament: { name: @filament.name, material: @filament.material, color: @filament.color, length: @filament.length, weight: @filament.weight, cost: @filament.cost, diameter: @filament.diameter, archived: @filament.archived }
+      post :create, filament: { name: @filament.name, material: @filament.material, color: @filament.color, length: @filament.length, weight: @filament.weight, cost: @filament.cost, diameter: @filament.diameter, archived: @filament.archived, user_id: '1' }
     end
     assert_redirected_to "/users/sign_in"
   end
-  test "should show filament when signed in" do
+  test "should show User1 filament when signed in as User1" do
     sign_in User.first
     get :show, id: @filament
     assert_response :success
+  end
+  test "should not show User1 filament when signed in as User2" do
+    sign_in User.second
+    get :show, id: @filament
+    assert_response :redirect
   end
   test "should not show filament when signed out" do
     get :show, id: @filament
     assert_response :redirect
   end
-  test "should get edit when signed in" do
+  test "should get edit for User1 filament when signed in as User1" do
     sign_in User.first
     get :edit, id: @filament
     assert_response :success
+  end
+  test "should not get edit for User 1 filament when signed in as User2" do
+    sign_in User.second
+    get :edit, id: @filament
+    assert_response :redirect
   end
   test "should not get edit when signed out" do
     get :edit, id: @filament
     assert_response :redirect
   end
-  test "should update filament when signed in" do
+  test "should update User1 filament when signed in as User1" do
     sign_in User.first
     patch :update, id: @filament, filament: { name: @filament.name, material: @filament.material, color: @filament.color, length: @filament.length, weight: @filament.weight, cost: @filament.cost, diameter: @filament.diameter, archived: @filament.archived }
     assert_redirected_to filament_path(assigns(:filament))
+  end
+  test "should not update User1 filament when signed in as User2" do
+   sign_in User.second
+    patch :update, id: @filament, filament: { name: @filament.name, material: @filament.material, color: @filament.color, length: @filament.length, weight: @filament.weight, cost: @filament.cost, diameter: @filament.diameter, archived: @filament.archived }
+    assert_response :redirect
   end
   test "should not update filament when signed out" do
     patch :update, id: @filament, filament: { name: @filament.name, material: @filament.material, color: @filament.color, length: @filament.length, weight: @filament.weight, cost: @filament.cost, diameter: @filament.diameter, archived: @filament.archived }
     assert_redirected_to "/users/sign_in"
   end
-  test "should destroy filament when signed in" do
+  test "should destroy User1 filament when signed in as User1" do
     sign_in User.first
     assert_difference('Filament.count', -1) do
       delete :destroy, id: @filament
     end
     assert_redirected_to filaments_path
+  end
+  test "should not destroy User1 filament when signed in as User2" do
+    sign_in User.second
+    assert_no_difference('Filament.count', -1) do
+      delete :destroy, id: @filament
+    end
+    assert_response :redirect
   end
   test "should not destroy filament when signed out" do
     assert_no_difference('Filament.count', -1) do
