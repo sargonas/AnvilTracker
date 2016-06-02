@@ -49,8 +49,8 @@
     </p>
     
     <p>
-        <strong><%= f.label :print_time_in_seconds %></strong><br>
-        <%= f.number_field :print_time %>
+        <strong><%= f.label :print_duration, "Print Duration in HH:MM:SS" %></strong><br>
+        <%= f.text_field :print_duration, :value => Time.at(@print.print_time).utc.strftime("%H:%M:%S") %>
     </p>
     
     <p>

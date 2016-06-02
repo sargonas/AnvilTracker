@@ -39,8 +39,7 @@ class PrintsController < ApplicationController
     
     def update
         @print = current_user.prints.find(params[:id])
-        @print.user_id = current_user.id
- 
+        
         if @print.update(print_params)
             redirect_to @print
         else
@@ -57,7 +56,7 @@ class PrintsController < ApplicationController
     
     private
         def print_params
-            params.require(:print).permit(:name, :length, :weight, :price, :filament_id, :printed_date, :volume, :extruder_id, :print_time, :notes)
+            params.require(:print).permit(:name, :length, :weight, :price, :filament_id, :printed_date, :volume, :extruder_id, :print_time, :notes, :print_duration)
         end
         #controls to help with sorting the indexes
         def sort_column
