@@ -15,9 +15,8 @@ development:
   database: development
   pool: 5
   username: postgres
-  password: admin
+  password: development
   template: template0
-  port: 5433
 
 test:
   adapter: postgresql
