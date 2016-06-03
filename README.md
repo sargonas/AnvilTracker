@@ -37,7 +37,7 @@ set to 1 for true and 0 for false.
 ####Prints import format:
 
 | printed_date | name | print_time | filament_id | extruder_id | length | weight | volume | price | notes |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | DD/MM/YYY | textual name | seconds | filament.id of filament | extruder name | decimal | decimal | decimal | decimal | text |
 | 17/05/2016 | Test Sphere | 7800 | 15 | mb2 | 42378.1 | 14.99 | 18.623 | 0.00 | this print was awesome! |
 
