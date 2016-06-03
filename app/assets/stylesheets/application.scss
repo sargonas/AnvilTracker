@@ -13,26 +13,31 @@
  *= require_tree .
  *= require_self
  */
- 
+@import "bootstrap-sprockets";
 @import "bootstrap";
- 
+
+#main-content {
+  margin-top: 25px;
+  margin-bottom: 50px; //To account for 44px footer
+}
+
 .index_tables {
     table {
-        width: 100%; 
-        border-collapse: collapse; 
+        width: 100%;
+        border-collapse: collapse;
     }
     tr:nth-of-type(odd) {
-        background: #eee; 
+        background: #eee;
     }
     th {
         background: #333;
         color: white;
-        font-weight: bold; 
+        font-weight: bold;
     }
     td, th {
-        padding: 6px;
+        padding: 4px;
         border: 1px solid #ccc;
-        text-align: left; 
+        text-align: left;
     }
 }
 
@@ -63,4 +68,41 @@
     border-color: #d6e9c6;
     color: #468847;
     text-align: left;
+ }
+
+ /* Menu */
+ .menu {
+   color: #232323;
+
+   li {
+     list-style: none;
+     padding: 5px 0;
+     border-bottom: 1px solid #bcbcbc;
+
+     &:last-of-type {
+       border: 0;
+     }
+   }
+
+   a:hover {
+     background: none;
+     text-decoration: none;
+     font-weight: 500;
+   }
+ }
+
+ /* Header */
+ .header {
+   border-bottom: 1px solid #bcbcbc;
+ }
+
+ /* Footer */
+ .footer {
+   border-top: 1px solid #bcbcbc;
+   background: white;
+   position: fixed;
+   bottom: 0;
+   height: 44px;
+   color: #232323;
+   width: 100%;
  }
