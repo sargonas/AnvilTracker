@@ -41,11 +41,19 @@
           <% else %>
             <td> $0.00</td>
           <% end %>
-          <td><%= link_to 'Details', print_path(print), class: 'btn btn-primary' %>
-          <%= link_to 'Edit', edit_print_path(print), class: 'btn btn-warning' %>
-          <%= link_to 'Delete', print_path(print),
+          <td>
+            <%= link_to print_path(print) do %>
+              <span class="glyphicon glyphicon-info-sign"></span>
+            <% end %>
+            <%= link_to edit_print_path(print) do %>
+              <span class="glyphicon glyphicon-pencil"></span>
+            <% end %>
+            <%= link_to print_path(print),
                   method: :delete,
-                  data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+                  data: { confirm: 'Are you sure?' } do %>
+                  <span class="glyphicon glyphicon-trash"></span>
+                <%end %>
+          </td>
         </tr>
       <% end %>
     </table>
