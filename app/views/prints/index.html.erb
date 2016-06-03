@@ -51,11 +51,7 @@
     </table>
     <br>
     <%= link_to '+Add Print', new_print_path, class: 'btn btn-primary' %>
-     <p>
-    <h3>Import Prints</h3>
-      <%= form_tag import_prints_path, multipart: true do %>
-        <%= file_field_tag :file %>
-        <%= submit_tag "Import CSV" %>
-      <% end %>
+    <p>
+      <br><%= link_to 'Import prints', prints_importer_path %>
     </p>
   </div>

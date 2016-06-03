@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   
   get 'home/index'
   get 'home/version'
+  get 'filaments/importer'
+  get 'prints/importer'
   
   resources :filaments do
     collection { post :import }
