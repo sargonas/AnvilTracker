@@ -19,42 +19,20 @@
           <li><%= link_to 'Edit User', edit_user_registration_path %></li>
           <% else %>
           <% end %>
+          <% if current_user && current_user.admin? %>
+              <li><%= link_to 'Admin', admin_home_path %> </li>
+            <% end %>
           <%= render 'devise/menu/login' %>
       </p>
     </div>
     <div class="col-md-10">
-      <div class="colleft">
-        <div class="col2">
-        <p>
-          <h2>Menu</h2>
-            <br>
-            <% if user_signed_in? %>
-              <li><%= link_to 'Home', root_path %></li>
-              <li><%= link_to 'Filaments', filaments_path %></li>
-              <li><%= link_to 'Prints', prints_path %></li>
-              <li><%= link_to 'Edit User', edit_user_registration_path %></li>
-            <% else %> 
-            <% end %>
-            <% if current_user && current_user.admin? %>
-              <li><%= link_to 'Admin', admin_home_path %> </li>
-            <% end %>
-            <%= render 'devise/menu/login' %>
-        </p>
-        </div>
         <div class="col1">
           <%= yield %>
         </div>
         <div class="col3">
         </div>
       </div>
-      <div class="col2">
-        <%= yield %>
-      </div>
-      <div class="col3">
-      </div>
-      </div>
     </div>
-  </div>
 <%= render "layouts/footer" %>
 </body>
 </html>
