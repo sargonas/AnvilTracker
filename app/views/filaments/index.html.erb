@@ -18,7 +18,7 @@
       <th>Weight Used</th>
       <th>Remaining Weight</th>
       <th>Cost</th>
-      <th><%= sortable "archived", "Availability" %></th>
+      <th><%= sortable "archived", "Availabile?" %></th>
       <th>Actions</th>
     </tr>
     </thread>
@@ -54,9 +54,9 @@
         <td><%= number_to_currency(filament.cost) %></td>
         <%# Archived status logic %>
         <% if (filament.archived == true) %>
-          <td>Archived</td>
+          <td style="text-align:center; color:red"><span class="glyphicon glyphicon-remove-sign"></span></td>
         <% else %>
-          <td>Available</td>
+          <td style="text-align:center; color:green"><span class="glyphicon glyphicon-ok-sign"></span></td>
         <% end %>
         <td>
           <%= link_to filament_path(filament) do %>
