@@ -75,7 +75,11 @@ sudo service postgresql start
 rake db:create && rake db:migrate
 ```
 6. Start server via the "Run" button under the "Run Configuration" console tab. (You can open a new tab for this with the console + tab icon)
-7. (optional) for local mail server functions to work you'll need to set your ENV variables. The ENVs are set on C9 under the "Run Configuration" console tab by clicking ENV on the far right. Be sure to restart the server after setting these if it is running!
+7. For Development database setup, you'll need to set local ENV variables. The ENVs are set on C9 under the "Run Configuration" console tab by clicking ENV on the far right. Be sure to restart the server after setting these if it is running!
+    - DATABASE_NAME = the name of the Database  
+    - DATABASE_USER = the username of your database account
+    - DATABASE_PASS = the password for the database user
+8. (optional) for local mail server functions to work you'll need to set your ENV variables. The ENVs are set on C9 under the "Run Configuration" console tab by clicking ENV on the far right. Be sure to restart the server after setting these if it is running!
     - MAIL_HOSTNAME (hostname of the SMTP server)
     - MAIL_DOMAIN (the part after the @, not server domain)
     - MAIL_USERNAME (smtp login email address)
