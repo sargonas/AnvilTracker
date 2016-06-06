@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
-  get 'admin/home'
-
+  
   #load devise for user controls
   devise_for :users
   
+  #custom one off mappings
+  get 'admin/home'
   get 'home/index'
   get 'home/version'
+  get 'filaments/importer'
+  get 'prints/importer'
   
+  #normal route groupings
+  resources :materials
   resources :filaments do
     collection { post :import }
   end

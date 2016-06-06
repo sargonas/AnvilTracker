@@ -1,3 +1,4 @@
+<p id="notice"><%= notice %></p>
 <h1>Listing filaments</h1>
   <%= link_to "Active Filaments", filaments_path(:archived=>0) %> ::
   <%= link_to "Archvied Filaments", filaments_path(:archived=>1) %> ::
@@ -26,7 +27,11 @@
       <tr>
         <td><%= filament.id %></td>
         <td><%= filament.name %></td>
-        <td><%= filament.material %></td>
+        <% if (filament.material_id != nil) %> 
+            <td><%= Material.find(filament.material_id).name %></td>
+          <% else %>
+            <td>N/A</td>
+          <% end %>
         <td><%= filament.color %></td>
         <td><%= filament.diameter %></td>
         <td><%= filament.length %>mm</td>
@@ -74,13 +79,10 @@
       </tr>
     <% end %>
   </table>
+</div>
   <br>
     <%= link_to '+Add Filament', new_filament_path, class: 'btn btn-primary' %>
     <p>
-    <h3>Import Filaments</h3>
-      <%= form_tag import_filaments_path, multipart: true do %>
-        <%= file_field_tag :file %>
-        <%= submit_tag "Import CSV" %>
-      <% end %>
+    <br><%= link_to 'Import filaments', filaments_importer_path %>
     </p>
-</div>
+

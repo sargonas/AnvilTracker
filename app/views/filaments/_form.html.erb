@@ -19,8 +19,8 @@
     </p>
     
     <p>
-        <strong><%= f.label :material %></strong><br>
-        <%= f.text_field :material %>
+        <strong>Material</strong><br>
+        <%= f.select :material_id, options_for_select(@material_options) %>
     </p>
     
     <p>

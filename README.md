@@ -37,7 +37,7 @@ set to 1 for true and 0 for false.
 ####Prints import format:
 
 | printed_date | name | print_time | filament_id | extruder_id | length | weight | volume | price | notes |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | DD/MM/YYY | textual name | seconds | filament.id of filament | extruder name | decimal | decimal | decimal | decimal | text |
 | 17/05/2016 | Test Sphere | 7800 | 15 | mb2 | 42378.1 | 14.99 | 18.623 | 0.00 | this print was awesome! |
 
@@ -75,6 +75,7 @@ sudo service postgresql start
 rake db:create && rake db:migrate
 ```
 6. Start server via the "Run" button under the "Run Configuration" console tab. (You can open a new tab for this with the console + tab icon)
+
 7. (optional) for local mail server functions to work you'll need to set your ENV variables. The ENVs are set on C9 under the "Run Configuration" console tab by clicking ENV on the far right. Be sure to restart the server after setting these if it is running!
     - MAIL_HOSTNAME (hostname of the SMTP server)
     - MAIL_DOMAIN (the part after the @, not server domain)

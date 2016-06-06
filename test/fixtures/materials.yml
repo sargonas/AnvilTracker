@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  name: CF PLA
+  manufacturer: Colorfabb
+  description: Basic PLA plastic
+  extruder_temp: 220
+  bed_temp: 65
+  notes: MyText
+  density: 1.24
+  user_id: 1
+
+two:
+  id: 2
+  name: CF nGen
+  manufacturer: Colorfabb
+  description: Colorfabb's next generation copolymer
+  extruder_temp: 240
+  bed_temp: 75
+  notes: MyText
+  density: 1.24
+  user_id: 2

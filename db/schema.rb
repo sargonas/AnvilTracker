@@ -11,24 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160601061959) do
+ActiveRecord::Schema.define(version: 20160606023109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "filaments", force: :cascade do |t|
     t.string   "name"
-    t.text     "material"
     t.text     "color"
     t.decimal  "length"
     t.decimal  "weight"
     t.decimal  "cost"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.decimal  "diameter"
-    t.boolean  "archived",   default: false
+    t.boolean  "archived",    default: false
     t.integer  "user_id"
+    t.integer  "material_id"
   end
+
+  add_index "filaments", ["material_id"], name: "index_filaments_on_material_id", using: :btree
+
+  create_table "materials", force: :cascade do |t|
+    t.string   "name"
+    t.string   "manufacturer"
+    t.text     "description"
+    t.integer  "extruder_temp"
+    t.integer  "bed_temp"
+    t.text     "notes"
+    t.float    "density"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "materials", ["user_id"], name: "index_materials_on_user_id", using: :btree
 
   create_table "prints", force: :cascade do |t|
     t.string   "name"
@@ -73,5 +90,7 @@ ActiveRecord::Schema.define(version: 20160601061959) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "filaments", "materials"
+  add_foreign_key "materials", "users"
   add_foreign_key "prints", "filaments"
 end
