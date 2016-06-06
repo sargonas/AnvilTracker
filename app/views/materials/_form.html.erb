@@ -11,36 +11,43 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
+  
+  <p>
+    <strong><%= f.label :name %></strong><br>
     <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :manufacturer %><br>
+  </p>
+  
+  <p>
+    <strong><%= f.label :manufacturer %></strong><br>
     <%= f.text_field :manufacturer %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :extruder_temp %><br>
-    <%= f.number_field :extruder_temp %>
-  </div>
-  <div class="field">
-    <%= f.label :bed_temp %><br>
-    <%= f.number_field :bed_temp %>
-  </div>
-  <div class="field">
-    <%= f.label :notes %><br>
-    <%= f.text_area :notes %>
-  </div>
-  <div class="field">
-    <%= f.label :density %><br>
-    <%= f.text_field :density %>
-  </div>
+  </p>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <p>
+    <strong><%= f.label :description %></strong><br>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <strong><%= f.label :extruder_temp %></strong><br>
+    <%= f.number_field :extruder_temp %>
+  </p>
+
+  <p>
+    <strong><%= f.label :bed_temp %></strong><br>
+    <%= f.number_field :bed_temp %>
+  </p>
+
+  <p>
+    <strong><%= f.label :notes %></strong><br>
+    <%= f.text_area :notes %>
+  </p>
+
+  <p>
+    <strong><%= f.label :density %></strong><br>
+    <%= f.text_field :density %>
+  </p>
+
+  <p>
+    <%= f.submit class: 'btn btn-warning'  %>
+  </p>
 <% end %>

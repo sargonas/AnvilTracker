@@ -1,65 +1,68 @@
+<p id="notice"><%= notice %></p>
 <h1>Listing prints</h1>
-  <div class="index_tables"> 
-    <table>
+<div class="index_tables"> 
+  <table>
+    <thread>
+    <tr>
+      <th><%= sortable "id", "ID" %></th>
+      <th><%= sortable "printed_date", "Date" %></th>
+      <th><%= sortable "name", "Name" %></th>
+      <th>Filament</th>
+      <th><%= sortable "length", "Length(mm)" %></th>
+      <th><%= sortable "weight", "Weight(g)" %></th>
+      <th>Volume(cm^3)</th>
+      <th>Print Time</th>
+      <th>Extruder ID</th>
+      <th>Sold for</th>
+      <th>Material cost</th>
+      <th>Net</th>
+    </tr>
+    </thread>
+    <% @prints.each do |print| %>
       <tr>
-        <th><%= sortable "id", "ID" %></th>
-        <th><%= sortable "printed_date", "Date" %></th>
-        <th><%= sortable "name", "Name" %></th>
-        <th>Filament</th>
-        <th><%= sortable "length", "Length(mm)" %></th>
-        <th><%= sortable "weight", "Weight(g)" %></th>
-        <th>Volume(cm^3)</th>
-        <th>Print Time</th>
-        <th>Extruder ID</th>
-        <th>Sold for</th>
-        <th>Material cost</th>
-        <th>Net</th>
+        <td><%= print.id %></td>
+        <td><%= print.printed_date %></td>
+        <td><%= print.name %></td>
+        <% if (print.filament_id != nil) %> 
+          <td><%= Filament.find(print.filament_id).name %></td>
+        <% else %>
+          <td>N/A</td>
+        <% end %>
+        <td><%= print.length %>mm</td>
+        <td><%= print.weight %>g</td>
+        <td><%= print.volume %></td>
+        <% if (print.print_time != nil) %>
+          <td><%= Time.at(print.print_time).utc.strftime("%H:%M:%S") %></td>
+        <% else %>
+          <td> n/a </td>
+        <% end %>
+        <td><%= print.extruder_id %></td>
+        <td><%= number_to_currency(print.price) %></td>
+        <td><%= number_to_currency((Filament.find(print.filament_id).cost/Filament.find(print.filament_id).length)*print.length) %></td>
+        <% if (print.price != 0) %>
+          <td><%= number_to_currency(print.price-((Filament.find(print.filament_id).cost/Filament.find(print.filament_id).length)*print.length)) %></td>
+        <% else %>
+          <td> $0.00</td>
+        <% end %>
+        <td>
+          <%= link_to print_path(print) do %>
+            <span class="glyphicon glyphicon-info-sign"></span>
+          <% end %>
+          <%= link_to edit_print_path(print) do %>
+            <span class="glyphicon glyphicon-pencil"></span>
+          <% end %>
+          <%= link_to print_path(print),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } do %>
+           <span class="glyphicon glyphicon-trash"></span>
+          <%end %>
+        </td>
       </tr>
-      <% @prints.each do |print| %>
-        <tr>
-          <td><%= print.id %></td>
-          <td><%= print.printed_date %></td>
-          <td><%= print.name %></td>
-          <% if (print.filament_id != nil) %> 
-            <td><%= Filament.find(print.filament_id).name %></td>
-          <% else %>
-            <td>N/A</td>
-          <% end %>
-          <td><%= print.length %>mm</td>
-          <td><%= print.weight %>g</td>
-          <td><%= print.volume %></td>
-          <% if (print.print_time != nil) %>
-            <td><%= Time.at(print.print_time).utc.strftime("%H:%M:%S") %></td>
-          <% else %>
-            <td> n/a </td>
-          <% end %>
-          <td><%= print.extruder_id %></td>
-          <td><%= number_to_currency(print.price) %></td>
-          <td><%= number_to_currency((Filament.find(print.filament_id).cost/Filament.find(print.filament_id).length)*print.length) %></td>
-          <% if (print.price != 0) %>
-            <td><%= number_to_currency(print.price-((Filament.find(print.filament_id).cost/Filament.find(print.filament_id).length)*print.length)) %></td>
-          <% else %>
-            <td> $0.00</td>
-          <% end %>
-          <td>
-            <%= link_to print_path(print) do %>
-              <span class="glyphicon glyphicon-info-sign"></span>
-            <% end %>
-            <%= link_to edit_print_path(print) do %>
-              <span class="glyphicon glyphicon-pencil"></span>
-            <% end %>
-            <%= link_to print_path(print),
-                  method: :delete,
-                  data: { confirm: 'Are you sure?' } do %>
-                  <span class="glyphicon glyphicon-trash"></span>
-                <%end %>
-          </td>
-        </tr>
-      <% end %>
-    </table>
-    <br>
-    <%= link_to '+Add Print', new_print_path, class: 'btn btn-primary' %>
-    <p>
-      <br><%= link_to 'Import prints', prints_importer_path %>
-    </p>
-  </div>
+    <% end %>
+  </table>
+</div>
+<br>
+<%= link_to '+Add Print', new_print_path, class: 'btn btn-primary' %>
+<p>
+  <br><%= link_to 'Import prints', prints_importer_path %>
+</p>
