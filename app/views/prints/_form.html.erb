@@ -21,7 +21,7 @@
     
     <p>
         <strong>Filament</strong><br>
-        <%= f.select :filament_id, options_for_select(@filament_options) %>
+        <%= f.select :filament_id, options_for_select(@filament_options, @print.filament_id) %>
     </p>
     <p>
         <strong><%= f.label :length %></strong><br>

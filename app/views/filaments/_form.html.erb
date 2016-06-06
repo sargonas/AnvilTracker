@@ -20,7 +20,7 @@
     
     <p>
         <strong>Material</strong><br>
-        <%= f.select :material_id, options_for_select(@material_options) %>
+        <%= f.select :material_id, options_for_select(@material_options, @filament.material_id) %>
     </p>
     
     <p>
