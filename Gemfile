@@ -23,6 +23,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 #custom
 gem 'bootstrap-sass'
+#progress bar
+gem 'nprogress-rails'
 # Use postgresqlbundle as the database for Active Record
 gem 'pg'
 

@@ -15,3 +15,9 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
+//= require nprogress
+//= require nprogress-turbolinks
+
+$(document).ready(function() {
+  NProgress.start();
+});

@@ -12,9 +12,13 @@
  *
  *= require_tree .
  *= require_self
+ *= require nprogress
+ *= require nprogress-bootstrap
  */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 
 #main-content {
   margin-top: 25px;
