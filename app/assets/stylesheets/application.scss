@@ -106,3 +106,19 @@
    color: #232323;
    width: 100%;
  }
+
+.footer ul {
+  list-style: none;
+  padding-left: 0;
+  text-align:center;
+}
+
+.footer ul li {
+  display: inline;
+  margin-right: 1em;
+}
+
+.footer ul li a {
+  text-transform: uppercase;
+  font-weight: bold;
+}
