@@ -35,10 +35,6 @@
   <%= @material.density %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @material.user %>
-</p>
-
-<%= link_to 'Edit', edit_material_path(@material) %> |
-<%= link_to 'Back', materials_path %>
+<%= link_to 'Edit', edit_material_path(@material), class: 'btn btn-warning' %>
+<%= link_to 'Materials', materials_path, class: 'btn btn-primary' %>
+<%= link_to 'Home', root_path, class: 'btn btn-primary' %>
