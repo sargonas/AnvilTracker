@@ -21,10 +21,12 @@ class FilamentsController < ApplicationController
     
     def new
         @filament = Filament.new
+        @material_options = Material.where(:user_id => current_user.id).map{ |f| [ f.name, f.id ] }
     end
     
     def edit
         @filament = current_user.filaments.find(params[:id])
+        @material_options = Material.where(:user_id => current_user.id).map{ |f| [ f.name, f.id ] }
     end
     
     def create
@@ -58,7 +60,7 @@ class FilamentsController < ApplicationController
     
     private
         def filament_params
-            params.require(:filament).permit(:name, :material, :color, :length, :weight, :cost, :diameter, :archived)
+            params.require(:filament).permit(:name, :material_id, :color, :length, :weight, :cost, :diameter, :archived)
         end
         
         #extras to support the sorting of the index table

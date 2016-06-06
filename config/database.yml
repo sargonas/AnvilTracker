@@ -12,10 +12,10 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: <%= ENV['DATABASE_NAME'] %>
+  database: development
   pool: 5
-  username: <%= ENV['DATABASE_USER'] %>
-  password: <%= ENV['DATABASE_PASS'] %>
+  username: postgres
+  password: development
   template: template0
   
 test:

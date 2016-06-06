@@ -10,7 +10,11 @@
  
 <p>
   <strong>Material:</strong>
-  <%= @filament.material %>
+  <% if (@filament.material_id != nil) %>
+    <%= @filament.material.name %>
+  <% else %>
+  N/A
+  <% end %>
 </p>
 
 <p>

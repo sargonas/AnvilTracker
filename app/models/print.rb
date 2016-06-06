@@ -19,6 +19,6 @@ class Print < ActiveRecord::Base
     end
   end
   def calculate_duration_seconds
-     self.print_time = self.print_duration.split(":").map.with_index{|x,i| x.to_i.send(%w[hours minutes seconds][i])}.reduce(:+).to_i
+     self.print_time = self.print_duration.to_s.split(":").map.with_index{|x,i| x.to_i.send(%w[hours minutes seconds][i])}.reduce(:+).to_i
   end
 end

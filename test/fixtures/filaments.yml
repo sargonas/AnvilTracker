@@ -3,7 +3,7 @@
 one:
   id: 1
   name: MyString
-  material: MyText
+  material_id: 1
   color: MyText
   length: 1
   weight: 1
@@ -14,8 +14,8 @@ one:
 
 two:
   id: 2
-  name: MyString
-  material: MyText
+  name: MyString2
+  material_id: 2
   color: MyText
   length: 1
   weight: 1

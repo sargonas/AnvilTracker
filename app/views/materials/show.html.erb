@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @material.name %>
+</p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @material.manufacturer %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @material.description %>
+</p>
+
+<p>
+  <strong>Extruder temp:</strong>
+  <%= @material.extruder_temp %>
+</p>
+
+<p>
+  <strong>Bed temp:</strong>
+  <%= @material.bed_temp %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @material.notes %>
+</p>
+
+<p>
+  <strong>Density:</strong>
+  <%= @material.density %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @material.user %>
+</p>
+
+<%= link_to 'Edit', edit_material_path(@material) %> |
+<%= link_to 'Back', materials_path %>
