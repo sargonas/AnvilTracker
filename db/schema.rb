@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20160606023109) do
 
   create_table "filaments", force: :cascade do |t|
     t.string   "name"
+    t.text     "material"
     t.text     "color"
     t.decimal  "length"
     t.decimal  "weight"
