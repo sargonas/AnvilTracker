@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   
+  ActiveAdmin.routes(self)
   #load devise for user controls
   devise_for :users
   
   #custom one off mappings
-  get 'admin/home'
   get 'home/index'
   get 'home/version'
   get 'filaments/importer'

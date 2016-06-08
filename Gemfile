@@ -19,10 +19,12 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+#user controls
 gem 'devise'
-#custom
+#custom UX stuff
 gem 'bootstrap-sass'
+#administraion tools
+gem 'activeadmin', github: 'activeadmin'
 #progress bar
 gem 'nprogress-rails'
 # Use postgresqlbundle as the database for Active Record
