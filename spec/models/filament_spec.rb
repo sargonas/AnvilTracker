@@ -48,6 +48,23 @@ RSpec.describe Filament, type: :model do
       expect(filament).to_not be_valid
     end
 
+    describe 'associations' do
+      it 'has belongs to a user' do
+        ar = described_class.reflect_on_association(:user)
+        expect(ar.macro) == :belongs_to
+      end
+
+      it 'has belongs to a material' do
+        ar = described_class.reflect_on_association(:material)
+        expect(ar.macro) == :belongs_to
+      end
+
+      it 'has many prints' do
+        ar = described_class.reflect_on_association(:prints)
+        expect(ar.macro) == :has_many
+      end
+    end
+
     specify '#import' do
       class DummyFile
         def path
