@@ -47,11 +47,12 @@ RSpec.describe Filament, type: :model do
       filament.user_id = nil
       expect(filament).to_not be_valid
     end
+    
 
     specify '#import' do
       class DummyFile
         def path
-          File.new(File.join(Rails.root, 'spec', 'fixture_files', 'sample.csv'))
+          File.new(File.join(Rails.root, 'spec', 'fixture_files', 'filament_sample.csv'))
         end
       end
 
