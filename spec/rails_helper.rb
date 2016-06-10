@@ -5,6 +5,8 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
+require 'devise'
+require 'support/controller_macros'
 
 require 'database_cleaner'
 DatabaseCleaner.strategy = :truncation
@@ -30,7 +32,14 @@ DatabaseCleaner.strategy = :truncation
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+
+
 RSpec.configure do |config|
+  
+  #Devise support
+  config.include Devise::TestHelpers, :type => :controller
+  config.extend ControllerMacros, :type => :controller
+  
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/factories"
 
