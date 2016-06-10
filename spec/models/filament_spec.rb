@@ -68,7 +68,7 @@ RSpec.describe Filament, type: :model do
     specify '#import' do
       class DummyFile
         def path
-          File.new(File.join(Rails.root, 'spec', 'fixture_files', 'sample.csv'))
+          File.new(File.join(Rails.root, 'spec', 'fixture_files', 'filament_sample.csv'))
         end
       end
 
