@@ -13,6 +13,7 @@ RSpec.describe Print, type: :model do
       expect(print).to_not be_valid
     end
 
+
     it 'should require a length' do
       print.length = nil
       expect(print).to_not be_valid

@@ -47,6 +47,7 @@ RSpec.describe Filament, type: :model do
       filament.user_id = nil
       expect(filament).to_not be_valid
     end
+    
 
     describe 'associations' do
       it 'has belongs to a user' do
