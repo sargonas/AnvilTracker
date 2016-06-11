@@ -4,8 +4,8 @@ FactoryGirl.define do
     length 900
     weight 75
     price 25.00
-    filament_id 1
+    filament
     volume 12
-    user_id 1
+    user
   end
 end
