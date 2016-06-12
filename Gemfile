@@ -29,6 +29,8 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'nprogress-rails'
 # Use postgresqlbundle as the database for Active Record
 gem 'pg'
+#omniauth login gems
+gem 'omniauth-facebook'
 
 #better logging support for running prod/staging on heroku
 gem 'rails_12factor', group: :production

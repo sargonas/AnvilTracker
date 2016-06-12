@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   ActiveAdmin.routes(self)
   #load devise for user controls
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   #custom one off mappings
   get 'home/index'
