@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   #custom one off mappings
   get 'home/index'
   get 'home/version'
-  get 'filaments/importer'
-  get 'prints/importer'
+  get 'home/importer'
   
   #normal route groupings
   resources :materials

@@ -43,10 +43,10 @@ set to 1 for true and 0 for false.
 
 ####Filaments import format:
 
-| name | material | color | diameter | weight | length | cost | archived |
+| name | material.id | color | diameter | weight | length | cost | archived |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| name | material type | color | filament's diameter | weight of spool | length of spool | cost of spool | boolean |
-| CF white #1 | PLA | white | 2.85 | 750 | 90000 | 35.00 | 0 |
+| name | id# of assoc. material | color | filament's diameter | weight of spool | length of spool | cost of spool | boolean |
+| CF white #1 | 1 | white | 2.85 | 750 | 90000 | 35.00 | 0 |
 
 ## Development environment setup
 ### c9.io

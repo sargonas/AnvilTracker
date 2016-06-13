@@ -1,0 +1,13 @@
+<h3>CSV Import tools</h3>
+
+<h3>Import Filaments</h3>
+    <%= form_tag import_filaments_path, multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag "Import CSV" %>
+    <% end %>
+<br>
+<h3>Import Prints</h3>
+    <%= form_tag import_prints_path, multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag "Import CSV" %>
+    <% end %>

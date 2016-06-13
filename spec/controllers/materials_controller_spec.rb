@@ -101,4 +101,8 @@ describe MaterialsController do
             end
         end
     end
+    
+    describe "if a non-existent material is called" do
+        it "should flash an error" 
+    end
 end
