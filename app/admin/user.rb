@@ -23,6 +23,8 @@ ActiveAdmin.register User do
         column :last_sign_in_at
         column :last_sign_in_ip
         column :created_at
+        column :provider
+        column :uid
         column :admin
     end
 
