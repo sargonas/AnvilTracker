@@ -1,7 +1,7 @@
 require 'rails_helper' 
 
 RSpec.describe DeviseHelper, type: :helper do
-  let(:resource_name) { (:usser) }
+  let(:resource_name) { (:user) }
   let(:devise_mapping){ (Devise.mappings[:user]) }
 
   context 'no error messages' do
