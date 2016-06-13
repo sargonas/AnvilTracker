@@ -24,8 +24,14 @@ describe MaterialsController do
     describe "GET #show" do
         context "when logged in" do
             login_user
-            it "assigns the requested material to @material"
-            it "renders the :show template"
+            it "assigns the requested material to @material"  do
+                get :show, id: test_material.id
+                expect(assigns(:material)).to eq(test_material)
+            end
+            it "renders the :show template" do
+                get :show, id: test_material.id
+                expect(response).to render_template :show
+            end
             it "does not show another users material"
         end
         context "when not logged in" do
@@ -45,8 +51,8 @@ describe MaterialsController do
         
         context "when not logged in" do
             it "does not assign a new Material to @material" do
-                material = FactoryGirl.create(:material)
-                get :new, id: material
+                #material = FactoryGirl.create(:material)
+                get :new, id: test_material
                 expect(response).to redirect_to(new_user_session_path)
             end
         end
@@ -95,8 +101,8 @@ describe MaterialsController do
         end
         context "when not logged in" do
             it "does not render a :show template" do
-                material = FactoryGirl.create(:material)
-                get :update, id: material
+                #material = FactoryGirl.create(:material)
+                get :update, id: test_material
                 expect(response).to redirect_to(new_user_session_path)
             end
         end

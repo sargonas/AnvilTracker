@@ -6,10 +6,7 @@ FactoryGirl.define do
 
     password 'changeme'
     password_confirmation 'changeme'
-    
-    trait :not_admin do
-      admin false
-    end
+    admin false
     
     trait :admin do
       admin true
