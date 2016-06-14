@@ -9,4 +9,4 @@ script:
   - bundle exec rake db:test:prepare
   - bundle exec rspec spec
 before_script:
-  – psql -c ‘create database test;’ -U postgres
+  - psql -c 'create database travis_ci_test;' -U postgres
