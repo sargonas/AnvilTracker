@@ -24,16 +24,13 @@ describe MaterialsController do
     describe "GET #show" do
         context "when logged in" do
             login_user
-            it "assigns the requested material to @material"  do
-                get :show, id: test_material
-                expect(assigns(:material)).to eq(@material)
-            end
-            it "renders the :show template" 
+            it "assigns the requested material to @material" 
+            it "renders the :show template"
             it "does not show another users material"
         end
         context "when not logged in" do
             it "does not render a :show template" do
-                get :show, id: test_material.id
+                get :show, id: test_material
                 expect(response).to redirect_to(new_user_session_path)
             end
         end
@@ -104,7 +101,8 @@ describe MaterialsController do
         end
     end
     
-    describe "if a non-existent material is called" do
+    describe "if an Activerecord:RecordNotFound is raised" do
+        login_user
         it "should flash an error" 
     end
 end
